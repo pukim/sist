@@ -45,7 +45,6 @@ public class MainClass {
 		Matcher matcher = pattern.matcher(str);
 		String rtnVal   = "";
 		
-		
 		if(matcher.find()) {
 			//rtnVal = matcher.group() + "=" + String.valueOf(matcher.start()) + ", " + String.valueOf(matcher.end());
 			rtnVal = matcher.group(2) + ", " + matcher.group(1) + ", " + matcher.group(0);
