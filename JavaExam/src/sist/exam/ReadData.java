@@ -45,7 +45,6 @@ public class ReadData {
 		//HashMap<String, Integer> hm   = new HashMap<String, Integer>();
 		stateStatic = initHashMap(hs);
 				
-		
 		for(HashMap<String, String> hm : li) {
 			String key = hm.get(str);
 			for(String s : hs) {
