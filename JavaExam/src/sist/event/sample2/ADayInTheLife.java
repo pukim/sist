@@ -27,5 +27,4 @@ public class ADayInTheLife {
         System.out.println("second pinch, look out:");
         happy.receivePinch();
     }
-    
 }

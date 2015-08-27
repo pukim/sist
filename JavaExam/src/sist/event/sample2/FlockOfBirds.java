@@ -18,5 +18,4 @@ public class FlockOfBirds implements MoodListener {
             System.out.println( "Birds are flying away!" );
         }
     }
-    
 }

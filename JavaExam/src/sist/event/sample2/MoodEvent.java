@@ -14,5 +14,4 @@ public class MoodEvent extends EventObject {
     public Mood mood() {
         return _mood;
     }
-    
 }

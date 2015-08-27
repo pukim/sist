@@ -17,3 +17,4 @@ public class NumberReadListenerImpl implements NumberReadListener {
         System.out.println("Sum of the number stream: " + totalSoFar);
     }
 }
+

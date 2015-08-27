@@ -17,5 +17,4 @@ public class Mood {
     private Mood( String mood ) {
         _mood = mood;
     }
-    
 }
