@@ -1,7 +1,7 @@
 /**
  * 
  */
-package sist.test;
+package sist.thinking;
 
 /**
  * @author owner

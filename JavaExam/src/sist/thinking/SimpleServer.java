@@ -1,4 +1,4 @@
-package sist.test;
+package sist.thinking;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -14,46 +14,47 @@ import java.awt.event.WindowEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
-public class SimpleClient extends Frame implements ActionListener {
-	private Button connectServer;
+public class SimpleServer extends Frame implements ActionListener {
+	private Button openServer;
 	private TextArea talkDisplay;
-	private TextField tfTalk, tfNick, tfIp;
-	// 서버연결용 소켓
+	private TextField tfTalk, tfNick;
+
+	// 포트를 열고 접속자 소켓을 받는 일
+	private ServerSocket server;
+	// 접속자소켓이 저장되어 스트림을 얻는일
 	private Socket client;
-	// 대화를 읽어들일 스트림
+	// 접속자가 전송하는 데이터를 받는 스트림
 	private DataInputStream dis;
-	// 대화를 보낼 스트림
+	// 접속자에게 데이터를 전송하는 스트림
 	private DataOutputStream dos;
 
-	public SimpleClient() {
-		super(":::::::::::::::::::::::::::채팅클라이언트:::::::::::::::::::::::::::");
-		connectServer = new Button("접속");
+	public SimpleServer() {
+		super(":::::::::::::::::::::::::::채팅서버:::::::::::::::::::::::::::");
+		openServer = new Button("서버가동");
 		talkDisplay = new TextArea();
 		talkDisplay.setEditable(false);
 		talkDisplay.setBackground(Color.WHITE);
 		tfTalk = new TextField();
 		tfNick = new TextField(10);
-		tfIp = new TextField("211.63.89.", 10);
 
 		Panel southPanel = new Panel();
-		southPanel.add(new Label("서버IP", Label.CENTER));
-		southPanel.add(tfIp);
 		southPanel.add(new Label("대화명", Label.CENTER));
 		southPanel.add(tfNick);
-		southPanel.add(connectServer);
+		southPanel.add(openServer);
 		add("North", southPanel);
 		add("Center", talkDisplay);
 		add("South", tfTalk);
 
 		tfTalk.addActionListener(this);
-		connectServer.addActionListener(this);
+		openServer.addActionListener(this);
 
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 300, 400);
 		setVisible(true);
 
 		addWindowListener(new WindowAdapter() {
@@ -63,67 +64,86 @@ public class SimpleClient extends Frame implements ActionListener {
 
 			@Override
 			public void windowClosed(WindowEvent e) {
+				// 종료될 때 호출되는 method
 				try {
-					if (dos != null) {
-						dos.close();
-					} // end if
 					if (dis != null) {
 						dis.close();
+					} // end if
+					if (dos != null) {
+						dos.close();
 					} // end if
 					if (client != null) {
 						client.close();
 					} // end if
+					if (server != null) {
+						server.close();
+					} // end if
 				} catch (IOException ie) {
 					ie.printStackTrace();
 				} // end catch
-			}// widowClosed
+			}// windowClosed
 		});
 	}// SimpleServer
 
-	private void connectToServer(String ip) throws IOException {
-		if (client == null) {
-			// 입력된 ip로 서버에 연결시도
-			// 연결 3 way hand shaking
-			client = new Socket(ip, 60000);
-			// 스트림을 연결
+	private void openServer() throws IOException {
+		if (server == null) {
+			// 포트를 열고
+			server = new ServerSocket(60000);
+			// 접속자가 들어오기를 대기
+			talkDisplay.setText("서버가동 성공...\n접속자를 기다립니다.");
+			client = server.accept();
+			// 메세지를 보내고 받기 위해서
+			// 스트림 연결
 			dis = new DataInputStream(client.getInputStream());
 			dos = new DataOutputStream(client.getOutputStream());
-			talkDisplay.setText("서버에 연결 되었습니다.");
-			// 서버에서 보내오는 메세지를
-			// 읽는 일을 하는 method 호출
+			talkDisplay
+			.append("대화상대가 접속 하였습니다. 즐거운 채팅되세요");
+			
+			//메세지 읽기
 			readMsg();
+			
 		} else {
-			JOptionPane.showMessageDialog(this, "서버에 연결 중입니다.");
+			JOptionPane.showMessageDialog(this, "서버가 이미 가동중 입니다.");
 		} // end else
-	}// connectToServer
+	}// openServer
 
+	/**
+	 * 대화상대가 메세지를 보낼 때마다 계속
+	 * 읽어 들어야 한다.(무한 loop) 
+	 * @throws IOException
+	 */
 	private void readMsg() throws IOException {
-		while (true) {
-			talkDisplay.append(dis.readUTF() + "\n");
-		} // end while
+		while(true){
+			//대화를 읽어들여 textarea에 출력한다.
+	talkDisplay.append( dis.readUTF()+"\n");
+		}//end while
 	}// readMsg
 
 	private void sendMsg(String msg) throws IOException {
-		dos.writeUTF( msg );
+		dos.writeUTF(msg);
 		dos.flush();
 	}// sendMsg
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		if (ae.getSource() == connectServer) {
+		if (ae.getSource() == openServer) {
 			try {
-				String ip=tfIp.getText().trim();
-				connectToServer( ip );
+				openServer();
 			} catch (IOException e) {
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(this, 
-			"대화상대가 접속을 종료 하였습니다.");
+		JOptionPane.showMessageDialog(this, 
+				"대화상대가 채팅을 종료했습니다.");
 			} // end catch
 		} // end if
 
 		if (ae.getSource() == tfTalk) {
 			try {
 				sendMsg("[" + tfNick.getText() + "] " + tfTalk.getText());
+				//대화내용 입력창을 초기화
+				tfTalk.setText("");
+				//다음 대화입력을 편하게 하기 
+				//위해서 커서를 이동
+				tfTalk.requestFocus();
 			} catch (IOException e) {
 				e.printStackTrace();
 			} // end catch
@@ -132,6 +152,6 @@ public class SimpleClient extends Frame implements ActionListener {
 	}// actionPerformed
 
 	public static void main(String[] args) {
-		new SimpleClient();
+		new SimpleServer();
 	}// main
 }// class

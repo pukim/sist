@@ -1,4 +1,4 @@
-package sist.test;
+package sist.thinking;
 
 import java.util.*;
 
