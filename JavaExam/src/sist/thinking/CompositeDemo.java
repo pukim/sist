@@ -40,11 +40,13 @@ class Column extends Composite {
 public class CompositeDemo {
    public static void main( String[] args ) {
       Composite first  = new Row( 1 );          // Row1
+     
       Composite second = new Column( 2 );       //   |
       Composite third  = new Column( 3 );       //   +-- Col2
       Composite fourth = new Row( 4 );          //   |     |
       Composite fifth  = new Row( 5 );          //   |     +-- 7
       first.add( second );                      //   +-- Col3
+     
       first.add( third  );                      //   |     |
       third.add( fourth );                      //   |     +-- Row4
       third.add( fifth  );                      //   |     |     |
@@ -54,4 +56,5 @@ public class CompositeDemo {
       fourth.add( new Primitive( 9 ) );         //   |     |     +-- 10
       fifth.add(  new Primitive(10 ) );         //   |     +-- 8
       first.traverse();                         //   +-- 6
-}  }
+   }  
+}

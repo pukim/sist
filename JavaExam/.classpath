@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="libs/netty-all-4.0.30.Final.jar"/>
 	<classpathentry kind="lib" path="libs/ojdbc6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="libs/mybatis/mybatis-3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
