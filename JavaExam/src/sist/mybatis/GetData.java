@@ -23,7 +23,7 @@ public class GetData {
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
-			session.selectMap("sample", "");
+			session.selectMap("sample", "7249");
 		} catch(Exception e) {
 	        session.rollback();
 	        e.printStackTrace();
