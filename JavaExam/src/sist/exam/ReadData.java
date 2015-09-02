@@ -55,7 +55,8 @@ public class ReadData {
 		}
 		
 		for(String s : hs) {
-			System.out.format("%-10s  %5d ( %5.2f %s) \n", "".equals(s) ? "기타" : s, stateStatic.get(s), stateStatic.get(s).floatValue()/li.size()*100.0f,"%");
+			//System.out.format("%-10s  %5d ( %5.2f %s) \n", "".equals(s) ? "기타" : s, stateStatic.get(s), stateStatic.get(s).floatValue()/li.size()*100.0f,"%");
+			System.out.format("%-10s  %5d ( %5.2f %s) \n", "".equals(s) ? "기타" : s, stateStatic.get(s), stateStatic.get(s).doubleValue()/li.size()*100.0f,"%");
 		}
 		
 		TreeMap<String, Integer> sortedMap = SortByValue(stateStatic);  
