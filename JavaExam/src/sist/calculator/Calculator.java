@@ -3,6 +3,7 @@
  */
 package sist.calculator;
 
+import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
@@ -16,7 +17,12 @@ import java.awt.Label;
 
 
 public class Calculator {
+	/**
+	 * 
+	 */
 	Frame f;
+	Label dsp;
+	
 	static       int x = 150, y = 200;
 	final static int h = 40,  w = 50;
 	
@@ -37,7 +43,8 @@ public class Calculator {
 	}
 	
 	public void drawDisplayArea() {
-		Label dsp = new Label("0");
+		//Label dsp = new Label("0");
+		dsp = new Label("0");
 		Font  fnt = new Font("Serif", Font.PLAIN, 20);
 		
 		dsp.setFont(fnt);
@@ -77,8 +84,6 @@ public class Calculator {
 			
 			System.out.println("[" + i +"], " + b);
 			
-			b.addActionListener(new ButtonEventHandler());
-
 			f.add(b.drawButton());
 		}
 	}

@@ -38,6 +38,8 @@ public class Buttons extends Button {
 	public Button drawButton() {
 		b.setSize(width, height);
 		b.setLocation(positionX, positionY);
+		
+		b.addActionListener(new ButtonEventHandler());
 		return b;
 	}
 	
@@ -48,10 +50,7 @@ public class Buttons extends Button {
 		height    = h;
 		width     = w;
 		
-		b.setSize(height, width);
-		b.setLocation(positionX, positionY);
-		
-		return b;
+		return drawButton();
 	}
 	
 	public void setPositionX(int x) {
