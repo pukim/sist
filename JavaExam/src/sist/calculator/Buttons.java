@@ -11,14 +11,6 @@ import java.awt.event.ActionListener;
  * @author Administrator
  *
  */
-class ButtonEventHandler implements ActionListener {
-	public void actionPerformed(ActionEvent e) {
-		System.out.println(e.getSource());
-		System.out.println("button click :" + e.getActionCommand());
-	}
-	
-}
-
 public class Buttons extends Button {
 	/**
 	 * 
@@ -35,22 +27,22 @@ public class Buttons extends Button {
 		label = s;
 	}
 	
-	public Button drawButton() {
+	public Button drawButton(DisplayArea da) {
 		b.setSize(width, height);
 		b.setLocation(positionX, positionY);
 		
-		b.addActionListener(new ButtonEventHandler());
+		b.addActionListener(new ButtonEventHandler(da));
 		return b;
 	}
 	
-	public Button drawButton(int x, int y, int h, int w) {
+	public Button drawButton(int x, int y, int h, int w, DisplayArea da) {
 		
 		positionX = x;
 		positionY = y;
 		height    = h;
 		width     = w;
 		
-		return drawButton();
+		return drawButton(da);
 	}
 	
 	public void setPositionX(int x) {

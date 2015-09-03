@@ -21,10 +21,10 @@ public class Calculator {
 	 * 
 	 */
 	Frame f;
-	Label dsp;
 	
 	static       int x = 150, y = 200;
 	final static int h = 40,  w = 50;
+	private DisplayArea  da = DisplayArea.getInstance();
 	
 	public Calculator() {
 		
@@ -42,17 +42,9 @@ public class Calculator {
 		f.setVisible(true);
 	}
 	
+	
 	public void drawDisplayArea() {
-		//Label dsp = new Label("0");
-		dsp = new Label("0");
-		Font  fnt = new Font("Serif", Font.PLAIN, 20);
-		
-		dsp.setFont(fnt);
-		dsp.setBounds(30, 50, 330, 150);
-		dsp.setBackground(Color.GRAY);
-		dsp.setAlignment(dsp.RIGHT);
-		
-		f.add(dsp);
+		f.add(da.dsp);
 	}
 	
 	public void drawNumberPad() {
@@ -84,7 +76,7 @@ public class Calculator {
 			
 			System.out.println("[" + i +"], " + b);
 			
-			f.add(b.drawButton());
+			f.add(b.drawButton(da));
 		}
 	}
 	
@@ -101,7 +93,7 @@ public class Calculator {
 		b.setPositionX(x);
 		b.setPositionY(y);
 		
-		f.add(b.drawButton());
+		f.add(b.drawButton(da));
 	}
 	
 	public static void main(String[] args) {
