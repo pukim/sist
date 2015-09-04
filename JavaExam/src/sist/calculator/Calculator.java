@@ -22,8 +22,8 @@ public class Calculator {
 	 */
 	Frame f;
 	
-	static       int x = 150, y = 200;
-	final static int h = 40,  w = 50;
+	static   int x = 150, y = 200;
+	static   int h = 40,  w = 50;
 	private DisplayArea  da = DisplayArea.getInstance();
 	
 	public Calculator() {
@@ -80,20 +80,32 @@ public class Calculator {
 		}
 	}
 	
-	public void dotPad() {
-		String[] op = { ".", "=", "+", "-", "*", "/", "Del" };
-		Buttons b = new Buttons(".");
-
-		x = 150;
-		y = 380;
+	public void dotAndOperatorPad() {
+		String[] op = { ".", "+", "-", "*", "/", "C", "BS", "=" };
+		int oprCnt = op.length;
 		
-		b.setHeight(h);
-		b.setWidth(w);
+		for(int i=0; i<oprCnt; i++) {
+			Buttons b = new Buttons(op[i]); 
+		 
+			switch(i) {
+				case 0 : x = 150; y = 380;     break;
+				case 1 : x += w + 10;          break;
+				case 2 :
+				case 3 : 
+				case 4 : y -= h +  5;          break;
+				case 5 : x += w + 10;          break;
+				case 6 : y += h +  5;          break;
+				case 7 : y += h +  5; h += 45; break; 
+			}
+			
+			b.setHeight(h);
+			b.setWidth(w);
 		
-		b.setPositionX(x);
-		b.setPositionY(y);
-		
-		f.add(b.drawButton(da));
+			b.setPositionX(x);
+			b.setPositionY(y);
+			
+			f.add(b.drawButton(da));
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -101,11 +113,9 @@ public class Calculator {
 		Calculator cal = new Calculator("Calculator"); 
 		
 		cal.drawNumberPad();
-		cal.dotPad();
+		cal.dotAndOperatorPad();
+		
         cal.drawDisplayArea();
-        
 		cal.drawFrame();
-		
-		
 	}
 }

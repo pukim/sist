@@ -29,14 +29,16 @@ public class DisplayArea {
 
 	public boolean firstZeroRemove(String s) {
 		System.out.println(getLabelValue() + ", " + s);
-		if(length == 0) {
+		
+		if(getLabelValue().matches("^0")) {
 			if(".".equals(s)) {
 				return true;
 			} else {
 				return false;
 			}
+		} else {
+			return true;
 		}
-		return true;
 	}
 	
 	public String getLabelValue() {
