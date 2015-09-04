@@ -1,4 +1,4 @@
-package sist.test;
+package sist.test.calculator;
 
 import javax.swing.*;
 

@@ -11,7 +11,7 @@
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-package sist.test;
+package sist.test.calculator;
 
 import java.awt.*;
 import java.awt.event.*;
