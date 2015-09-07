@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.TextField;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -27,5 +29,10 @@ public class TextFieldTest {
 		
 		f.add(lid);  f.add(id); f.add(lpwd); f.add(pwd);
 		f.setVisible(true);
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }
