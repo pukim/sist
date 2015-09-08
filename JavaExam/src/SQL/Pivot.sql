@@ -6,8 +6,9 @@ GROUP BY CAR_YEAR, MODEL
 SELECT CAR_YEAR
       ,SUM(아반테) 아반테
       ,SUM(그랜저) 그랜저
+      ,SUM(액센트) 액센트
       ,SUM(체어맨) 체어맨
-      ,SUM(소렌토) 액센트
+      ,SUM(소렌토) 소렌토
       ,SUM(SM3)  SM3
       ,SUM(QM5)  QM5
 FROM (      

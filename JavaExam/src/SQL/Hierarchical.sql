@@ -15,10 +15,6 @@ SELECT LEVEL, LPAD(' ', 4*(LEVEL-1)) || ename ename, empno, mgr, job
  START WITH job='PRESIDENT'
 CONNECT BY PRIOR empno=mgr; 
 
-SELECT LEVEL, LPAD(' ', 4*(LEVEL-1)) || ename ename, empno, mgr, job 
-  FROM emp
- START WITH MGR IS NULL
-CONNECT BY PRIOR empno=mgr; 
 
 SELECT LEVEL, LPAD(' ', 4*(LEVEL-1)) || ename ename, empno, mgr, job 
   FROM emp
