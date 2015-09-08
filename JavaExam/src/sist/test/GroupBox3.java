@@ -28,6 +28,7 @@ public class GroupBox3 {
 		Panel p = new Panel();
 		
 		JPanel box = new JPanel();
+		
 		box.setLocation(100, 100);
 		box.setSize(250, 80);
  		//box.setLayout(new GridLayout(3,3));
