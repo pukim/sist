@@ -6,15 +6,22 @@ package sist.notepad.awt;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
+import java.awt.event.ActionListener;
 
 /**
  * @author Administrator
  *
  */
-public class MenuClass {
-	static MenuBar mb = new MenuBar();
+public class MenuClass extends MenuBar {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4441648497846520242L;
+
+
+	//static MenuBar mb = new MenuBar();
 	
-	MenuClass(String[] menus) {
+	MenuClass() {
 		/*
 		Menu mFile = new Menu("파일(F)");
 		Menu mEdit = new Menu("편집(E)");
@@ -28,10 +35,10 @@ public class MenuClass {
 		mb.add(mView);
 		mb.add(mHelp);
 		*/
-		for(String s : menus) {
+		for(String s : Constants.menus) {
 			Menu m = new Menu(s);
 			setSubMenu(m, s);
-			mb.add(m);
+			add(m);
 		}
 	}
 	
@@ -48,23 +55,31 @@ public class MenuClass {
 	}
 	
 	public void setSubMenu(Menu m, String s) {
-		String[] sFile = { "새로 만들기(N)\tCtrl+N", "열기(O)...Ctrl+O", "저장(S)", 
-				           "다른 이름으로 저장(A)...", "-", "페이지 설정(U)...","인쇄(P)", "-", "끝내기"};
 		
-		String[] sForm = {"자동 줄 바꿈(W)", "글꼴(F)"};
 		String[] sParam= {};
 		
 		if("파일(F)".equals(s)) {
-		   sParam = sFile;	
+		   sParam = Constants.sFile;	
 		} else if("서식(O)".equals(s)){
-		   sParam = sForm;
+		   sParam = Constants.sForm;
 		}
 		makeSubMenu(m, sParam);
 	}
 	
+	
+	public void addActionListener(ActionListener alr){
+
+	    for(int i=0;i<getMenuCount();i++) { 
+	      for(int j=0;j< getMenu(i).getItemCount();j++) {
+	         getMenu(i).getItem(j).addActionListener(alr);
+	      }
+	    }
+    }
+
+	
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("menu size = " + mb.getMenuCount() + ", " + mb.toString());
+		sb.append("menu size = " + getMenuCount());
 		return sb.toString();
 	}
 }

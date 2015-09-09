@@ -10,6 +10,8 @@ import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.TextArea;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -17,7 +19,7 @@ import java.awt.event.WindowEvent;
  * @author Administrator
  *
  */
-public class NotePad {
+public class NotePad  {
 	Frame f      = new Frame("제목없음-메모장");
 	TextArea ta  = new TextArea();
 			
@@ -31,7 +33,10 @@ public class NotePad {
 	
 	public void setMenuBar(MenuClass menu) {
 		System.out.println(menu);
-		f.setMenuBar(menu.mb);
+		
+		menu.addActionListener(new MenuEvent(f));
+		f.setMenuBar(menu);
+		
 	}
 	
 	public void drawTextArea() {
@@ -53,12 +58,10 @@ public class NotePad {
 		});
 	}
 	
-	
 	public static void main(String[] args) {
-		String[] menus = {"파일(F)", "편집(E)", "서식(O)", "보기(V)", "도움말(H)"};
 		
 		NotePad    note = new NotePad();
-		MenuClass  menu = new MenuClass(menus);
+		MenuClass  menu = new MenuClass();
 		
 		note.setMenuBar(menu);
 		note.drawTextArea();
