@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.ScrollPane;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -29,5 +31,10 @@ public class ScrollPaneTest {
 		sp.add(p);
 		f.add(sp);
 		f.setVisible(true);
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }

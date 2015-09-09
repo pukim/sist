@@ -6,6 +6,8 @@ package sist.awt.exam;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -23,5 +25,11 @@ public class CanvasTest {
 		
 		f.add(c);
 		f.setVisible(true);
+		
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }

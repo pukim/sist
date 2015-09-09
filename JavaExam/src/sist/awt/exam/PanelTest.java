@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -30,5 +32,10 @@ public class PanelTest {
 		p.add(ok);
 		f.add(p);
 		f.setVisible(true);
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }

@@ -5,6 +5,8 @@ package sist.awt.exam;
 
 import java.awt.Frame;
 import java.awt.Scrollbar;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -26,5 +28,11 @@ public class ScrollbarTest {
 		
 		f.add(hor); f.add(ver);
 		f.setVisible(true);
+		
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }

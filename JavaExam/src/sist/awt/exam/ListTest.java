@@ -5,6 +5,8 @@ package sist.awt.exam;
 
 import java.awt.Frame;
 import java.awt.List;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -43,6 +45,10 @@ public class ListTest {
 		f.add(selectOne);
 		f.add(selectMany);
 		f.setVisible(true);
-		
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }

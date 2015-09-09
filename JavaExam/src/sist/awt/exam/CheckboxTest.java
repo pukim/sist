@@ -8,6 +8,8 @@ import java.awt.CheckboxGroup;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * @author owner
@@ -43,5 +45,11 @@ public class CheckboxTest {
 		
 		f.add(q3); f.add(com1); f.add(com2); f.add(com3);
 		f.setVisible(true);
+		
+		f.addWindowListener(new WindowAdapter() {
+    		public void windowClosing(WindowEvent e) { 
+    			System.exit(0);
+    		}
+		});
 	}
 }
