@@ -5,6 +5,7 @@ package sist.notepad.awt;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -56,6 +57,10 @@ public class NotePad  {
 				System.exit(0);
 			}
 		});
+	}
+	
+	public void changeFont(Font font) {
+		ta.setFont(font);
 	}
 	
 	public static void main(String[] args) {
