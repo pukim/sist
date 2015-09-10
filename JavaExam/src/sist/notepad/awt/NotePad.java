@@ -21,8 +21,9 @@ import java.awt.event.WindowEvent;
  *
  */
 public class NotePad  {
-	Frame f      = new Frame("제목없음-메모장");
-	TextArea ta  = new TextArea();
+	Frame f             = new Frame("제목없음-메모장");
+	//static TextArea ta  = new TextArea();
+	static TextClass ta = TextClass.getInstance();
 			
 	NotePad() {
 		Toolkit tk = Toolkit.getDefaultToolkit();

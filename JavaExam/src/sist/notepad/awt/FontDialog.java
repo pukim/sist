@@ -92,7 +92,7 @@ public class FontDialog extends Dialog {
 		okBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println("clicked ok!!");
-				f. 
+				TextClass.changeFont(new Font(pFont.getValue(), pStyle.getIndex(), Integer.valueOf(pSize.getValue()))); 
 				dispose(); // remove from memory
 			}
 		});

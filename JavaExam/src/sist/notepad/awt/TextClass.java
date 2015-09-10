@@ -3,6 +3,7 @@
  */
 package sist.notepad.awt;
 
+import java.awt.Font;
 import java.awt.TextArea;
 
 /**
@@ -10,14 +11,17 @@ import java.awt.TextArea;
  *
  */
 public class TextClass extends TextArea{
-	private TextClass ta; 
-	
-	TextClass(int x, int y, int h, int w) {
+	private final static TextClass ta = new TextClass(); 
+
+	private TextClass() {
 		
-		ta.setSize(w, h);
 	}
 	
-	public TextClass getInstance() {
+	public static TextClass getInstance() {
 		return ta;
+	}
+	
+	public static void changeFont(Font f) {
+		ta.setFont(f);	
 	}
 }
