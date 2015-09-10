@@ -37,7 +37,7 @@ public class FontDialog extends Dialog {
 		
 		this.f = f;
 	    
-		setSize(500, 600);
+		setSize(500, 500);
 		
 		Point p = f.getLocation();
 		
@@ -75,10 +75,22 @@ public class FontDialog extends Dialog {
 	}
 	
 	public void drawView() {
-		Panel vewPan = new Panel();
+		Panel vewPan     = new Panel();
+		Label titleLabel = new Label("º¸±â");
 		
-		label.setSize(200, 400);
-		vewPan.add(label);
+		//titleLabel.setAlignment(Label.CENTER);
+		//titleLabel.setLocation(500, 400);
+		
+		//label.setBounds(500, 500, 400, 400);
+		//label.setLocation(600, 10);
+		label.setAlignment(Label.CENTER);
+		
+		
+        vewPan.setLayout(new BorderLayout());
+		//vewPan.setLayout(null);
+		vewPan.add(titleLabel, "North"); 
+		vewPan.add(label     , "Center");
+		
 		add(vewPan, "Center");
 	}
 	

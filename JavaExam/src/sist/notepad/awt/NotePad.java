@@ -7,8 +7,10 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Label;
 import java.awt.Menu;
 import java.awt.MenuBar;
+import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -50,9 +52,18 @@ public class NotePad  {
 		f.add(ta);
 	}
 	
+	public void drawStatusBar() {
+		Label l = new Label("Å×½ºÆ®");
+		Panel state = new Panel();
+		
+		state.add(l);
+		f.add(state);
+	}
+	
 	public void DrawFrame() {
 		//f.setLayout(new FlowLayout());
 		f.setVisible(true);
+		
 		f.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) { 
 				System.exit(0);
@@ -70,6 +81,8 @@ public class NotePad  {
 		MenuClass  menu = new MenuClass();
 		
 		note.setMenuBar(menu);
+		note.drawStatusBar();
+		
 		note.drawTextArea();
 		note.DrawFrame();
 	}
