@@ -10,13 +10,14 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import sist.class4.dtmanager.screen.MenuPanel;
+import sist.class4.dtmanager.screen.*;
 
 /**
  * @author Administrator
  *
  */
 public class DtMain extends Frame {
+	public static DtMain mainFrame;
 	
 	DtMain() {
 		// location 
@@ -29,22 +30,22 @@ public class DtMain extends Frame {
 		setSize( 700, 500 );
 		setBackground( Color.gray );
 		
+		mainFrame = this;
+		
 		// close
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) { 
-				closeWindow();
+				System.exit(0);
 			}
 		});
 	}
 	
-	public void closeWindow() {
-		System.exit(0);
-	}
-	
 	public static void main(String[] args) {
 		DtMain mainFrame = new DtMain();
+		MenuPanel menus  = new MenuPanel();
 		
-		mainFrame.setMenuBar(new MenuPanel());
+		menus.addActionListener(new MenuEvent());
+		mainFrame.setMenuBar(menus);
 		mainFrame.setVisible(true);
 	}
 }

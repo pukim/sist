@@ -12,17 +12,13 @@ import java.awt.event.ActionListener;
  *
  */
 public class MenuEvent implements ActionListener {
-	private Frame pf;
-	
-	MenuEvent(Frame pf) {
-		this.pf = pf;
-	}
+	 
 	
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(e.getActionCommand() + "," + e.getSource());
 		
-		if("file".equals(e.getActionCommand())) {
-
+		if("exit".equals(e.getActionCommand())) {
+			System.exit(0);
 		}
 	}
 }
