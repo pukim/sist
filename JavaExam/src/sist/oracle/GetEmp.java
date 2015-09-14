@@ -1,5 +1,6 @@
 /**
- * 
+ *  oracle jdbc debugging :
+ *  http://javaeesupportpatterns.blogspot.kr/2011/02/enabling-oracle-jdbc-driver-debug.html
  */
 package sist.oracle;
 
