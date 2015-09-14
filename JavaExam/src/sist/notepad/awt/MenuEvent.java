@@ -25,5 +25,18 @@ public class MenuEvent implements ActionListener {
 			FontDialog fd = new FontDialog(pf);
 			fd.setVisible(true);
 		}
+		
+		if("인쇄(P)".equals(e.getActionCommand())) {
+			PrintDialog pd = new PrintDialog();
+		}
+		
+		if("페이지 설정(U)...".equals(e.getActionCommand())) {
+			PageSetupDialog psd = new PageSetupDialog();
+		}
+		
+		if("끝내기".equals(e.getActionCommand())) {
+			System.exit(0);
+		}
+		
 	}
 }
