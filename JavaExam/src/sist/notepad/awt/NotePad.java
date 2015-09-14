@@ -40,7 +40,6 @@ public class NotePad  {
 		
 		menu.addActionListener(new MenuEvent(f));
 		f.setMenuBar(menu);
-		
 	}
 	
 	public void drawTextArea() {

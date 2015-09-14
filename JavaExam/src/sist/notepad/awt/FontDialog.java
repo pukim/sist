@@ -41,9 +41,9 @@ public class FontDialog extends Dialog {
 		
 		Point p = f.getLocation();
 		
-		if(p.x > 100) p.x = p.x - 100;
-		if(p.y > 100) p.y = p.y - 100;
-		
+		p.x = p.x + 100;
+		p.y = p.y + 100;		
+		 
 		setLayout(new BorderLayout());
 		setLocation(p.x, p.y);
 		setResizable(false);
