@@ -19,8 +19,8 @@ public class MenuEvent implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(e.getActionCommand() + "," + e.getSource());
-		
+		System.out.println(e.getActionCommand() + ", " + e.getID() + ", " + e.getSource());
+	   
 		if("±Û²Ã(F)".equals(e.getActionCommand())) {
 			FontDialog fd = new FontDialog(pf);
 			fd.setVisible(true);
