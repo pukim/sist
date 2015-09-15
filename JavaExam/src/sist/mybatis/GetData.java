@@ -3,10 +3,12 @@
  */
 package sist.mybatis;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import java.util.*;
+
 /**
  * @author owner
  *
@@ -19,16 +21,19 @@ public class GetData {
 	}
 	
 
-	public void getEmp() {
+	public HashMap getEmp(String val) {
 		SqlSession session = sqlSessionFactory.openSession();
+		HashMap hm = new HashMap();
 		
 		try {
-			session.selectMap("sample", "7249");
+			hm = (HashMap)session.selectMap("sample.getEmp", val);
 		} catch(Exception e) {
 	        session.rollback();
 	        e.printStackTrace();
 	    } finally {
 	        session.close();
 	    }
+		System.out.println("date " + hm);
+		return hm;
 	}
 }

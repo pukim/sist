@@ -12,7 +12,7 @@ public class RunExam {
 	public static void main(String[] args) {
 		GetData gd = new GetData();
 		
-		gd.getEmp();
+		gd.getEmp("7345");
 	}
 	
 }

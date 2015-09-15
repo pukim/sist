@@ -4,21 +4,19 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <typeAliases>
-        <typeAlias type="java.lang.Object" alias="sample"/>
-    </typeAliases>
-  
+    <properties resource="sist/mybatis/database.properties" />
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property value="oracle.jdbc.driver.OracleDriver" name="driver"></property>
-                <property value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" name="url"></property>
-                <property value="scott" name="username"></property>
-                <property value="tiger" name="password"></property>
+                <property value="${database.driver}"   name="driver"></property>
+                <property value="${database.url}"      name="url"></property>
+                <property value="${database.username}" name="username"></property>
+                <property value="${database.password}" name="password"></property>
             </dataSource>
         </environment>
     </environments>
+    
     <mappers>
         <mapper resource="sist/mybatis/sql/getEmp.xml"></mapper>
     </mappers>
