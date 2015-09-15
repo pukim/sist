@@ -9,6 +9,7 @@ import java.sql.*;
 public class GetEmp {
 	public static void main(String[] args) {
 		String DB_URL = "jdbc:oracle:thin:@211.63.89.161:1521:orcl";
+	//	String DB_URL = "jdbc:oracle:thin:@localhost:1521:orcl2";
 		String DB_USER = "scott";
 		String DB_PASSWORD = "tiger";
 
