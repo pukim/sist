@@ -3,6 +3,7 @@
  */
 package sist.class4.dtmanager;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -40,12 +41,24 @@ public class DtMain extends Frame {
 		});
 	}
 	
+	public void drawScreen() {
+		MenuPanel menus  = new MenuPanel();
+		menus.addActionListener(new MenuEvent());
+		
+		mainFrame.setMenuBar(menus);
+		
+		mainFrame.setLayout(new BorderLayout());
+		
+		mainFrame.add(new InputArea("조회 항목", "조회"), "North");
+		mainFrame.add(new GridArea()               , "Center");
+		mainFrame.add(new ButtonArea()             , "South");
+	}
+	
 	public static void main(String[] args) {
 		DtMain mainFrame = new DtMain();
-		MenuPanel menus  = new MenuPanel();
 		
-		menus.addActionListener(new MenuEvent());
-		mainFrame.setMenuBar(menus);
+		
+		mainFrame.drawScreen();
 		mainFrame.setVisible(true);
 	}
 }

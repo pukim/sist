@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class SimpleTableExample extends 	JFrame
+class SimpleTableExample extends JFrame
  {
 	// Instance attributes used in this example
 	private	JPanel		topPanel;
