@@ -22,19 +22,6 @@ public class MenuClass extends MenuBar {
 	//static MenuBar mb = new MenuBar();
 	
 	MenuClass() {
-		/*
-		Menu mFile = new Menu("ÆÄÀÏ(F)");
-		Menu mEdit = new Menu("ÆíÁı(E)");
-		Menu mForm = new Menu("¼­½Ä(O)");
-		Menu mView = new Menu("º¸±â(V)");
-		Menu mHelp = new Menu("µµ¿ò¸»(H)");
-		
-		mb.add(mFile);
-		mb.add(mEdit);
-		mb.add(mForm);
-		mb.add(mView);
-		mb.add(mHelp);
-		*/
 		for(String s : Constants.menus) {
 			Menu m = new Menu(s);
 			setSubMenu(m, s);
@@ -58,12 +45,14 @@ public class MenuClass extends MenuBar {
 		
 		String[] sParam= {};
 		
-		if("ÆÄÀÏ(F)".equals(s)) {
-		   sParam = Constants.sFile;	
-		} else if("¼­½Ä(O)".equals(s)){
-		   sParam = Constants.sForm;
+		if("íŒŒì¼(F)".equals(s)) { 
+		   sParam = Constants.sFile;	 
+		} else if("ì„œì‹(O)".equals(s)){ 
+		   sParam = Constants.sForm; 
 		}
-		makeSubMenu(m, sParam);
+		
+		makeSubMenu(m, sParam); 
+
 	}
 	
 	

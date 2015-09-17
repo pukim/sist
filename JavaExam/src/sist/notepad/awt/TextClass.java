@@ -24,4 +24,6 @@ public class TextClass extends TextArea{
 	public static void changeFont(Font f) {
 		ta.setFont(f);	
 	}
+	
+	
 }

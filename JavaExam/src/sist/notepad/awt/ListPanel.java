@@ -39,7 +39,7 @@ public class ListPanel extends Panel implements ItemListener {
 		String[] items = {};
 		int flag = 0;
 		
-		if("±Û²Ã".equals(title)) {
+		if("ê¸€ê¼´".equals(title)) {
 			items = getFontNames();
 			flag = 1;
 			

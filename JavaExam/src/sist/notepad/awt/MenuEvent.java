@@ -3,16 +3,27 @@
  */
 package sist.notepad.awt;
 
+import java.awt.FileDialog;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  * @author owner
  *
  */
 public class MenuEvent implements ActionListener {
-	private Frame pf;
+	private Frame      pf;
+	private FileDialog fd;
+	private TextClass  textArea = TextClass.getInstance();
 	
 	MenuEvent(Frame pf) {
 		this.pf = pf;
@@ -21,22 +32,82 @@ public class MenuEvent implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(e.getActionCommand() + ", " + e.getID() + ", " + e.getSource());
 	   
-		if("±€≤√(F)".equals(e.getActionCommand())) {
+		if("Í∏ÄÍº¥(F)".equals(e.getActionCommand())) {
 			FontDialog fd = new FontDialog(pf);
 			fd.setVisible(true);
 		}
 		
-		if("¿Œº‚(P)".equals(e.getActionCommand())) {
+		if("Ïù∏ÏáÑ(P)".equals(e.getActionCommand())) {
 			PrintDialog pd = new PrintDialog();
 		}
 		
-		if("∆‰¿Ã¡ˆ º≥¡§(U)...".equals(e.getActionCommand())) {
+		if("ÌéòÏù¥ÏßÄ ÏÑ§Ï†ï(U)...".equals(e.getActionCommand())) {
 			PageSetupDialog psd = new PageSetupDialog();
 		}
 		
-		if("≥°≥ª±‚".equals(e.getActionCommand())) {
+		if("ÎÅùÎÇ¥Í∏∞".equals(e.getActionCommand())) {
 			System.exit(0);
 		}
 		
+		if("ÏÉàÎ°ú ÎßåÎì§Í∏∞(N)	Ctrl+N".equals(e.getActionCommand())) {
+			ChooseMsgBox cmb  = new ChooseMsgBox(pf, "Î©îÎ™®Ïû•");
+			cmb.setVisible(true);
+			/*
+			if(emptyCheck()) {
+				newFile();
+			} else {
+				
+			}
+			*/
+		}
+		
+		if("Ïó¥Í∏∞(O)...Ctrl+O".equals(e.getActionCommand())) {
+			fileOpen();
+		}
+		
+	}
+	
+	public boolean emptyCheck() {
+		boolean rtnVal = true;
+		
+		if(textArea.getText().length() > 0) {
+			rtnVal = false;
+		}
+		return rtnVal;
+	}
+	
+	public void newFile() {
+		
+	}
+	
+	public void fileOpen() {
+		fd = new FileDialog(pf, "ÌååÏùºÏó¥Í∏∞", FileDialog.LOAD);
+		
+		fd.setVisible(true);
+		
+		String selDir  = fd.getDirectory();
+		String selFile = fd.getFile();
+		
+		
+		if(!"".equals(selDir+selFile)) {
+           try {
+        	   
+               BufferedReader inputStream = new BufferedReader(new FileReader(selDir+selFile));
+               String inData;
+               
+               pf.setTitle(selFile);
+               textArea.setText("");
+               
+               while((inData = inputStream.readLine()) != null) {
+                    textArea.append(inData+"\n");
+               }
+           }
+           catch(FileNotFoundException fnf) {
+                JOptionPane.showMessageDialog(null, "Sorry,File Not Found", "", JOptionPane.WARNING_MESSAGE );
+           }
+           catch(IOException ioe) {
+               ioe.printStackTrace();
+          }
+        }
 	}
 }
