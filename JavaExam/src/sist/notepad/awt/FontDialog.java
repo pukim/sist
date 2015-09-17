@@ -6,15 +6,11 @@ package sist.notepad.awt;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Dialog;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -28,12 +24,12 @@ public class FontDialog extends Dialog {
     private Frame f;	
 	private Label label   = new Label("AaBbYyZz");
 	
-	private ListPanel pFont  = new ListPanel(this, "±€≤√");
-	private ListPanel pStyle = new ListPanel(this, "Ω∫≈∏¿œ", Constants.sStyle);
-	private ListPanel pSize  = new ListPanel(this, "≈©±‚");
+	private ListPanel pFont  = new ListPanel(this, "Í∏ÄÍº¥"); 
+	private ListPanel pStyle = new ListPanel(this, "Ïä§ÌÉÄÏùº", Constants.sStyle); 
+	private ListPanel pSize  = new ListPanel(this, "ÌÅ¨Í∏∞"); 
 
 	FontDialog(Frame f) {
-		super(f, "∆˘∆Æ", true);	 
+		super(f, "Ìè∞Ìä∏", true);	 
 		
 		this.f = f;
 	    
@@ -76,7 +72,7 @@ public class FontDialog extends Dialog {
 	
 	public void drawView() {
 		Panel vewPan     = new Panel();
-		Label titleLabel = new Label("∫∏±‚");
+		Label titleLabel = new Label("Î≥¥Í∏∞");
 		
 		//titleLabel.setAlignment(Label.CENTER);
 		//titleLabel.setLocation(500, 400);
@@ -98,8 +94,8 @@ public class FontDialog extends Dialog {
 		
 		Panel btnPan = new Panel();
 		
-		Button okBtn   = new Button("»Æ¿Œ");
-		Button canBtn  = new Button("√Îº“");
+		Button okBtn   = new Button("ÌôïÏù∏");
+		Button canBtn  = new Button("Ï∑®ÏÜå");
 		
 		okBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

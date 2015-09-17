@@ -10,8 +10,10 @@ import java.awt.Label;
 import java.awt.List;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.font.TextAttribute;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
@@ -37,7 +39,7 @@ public class ListPanel extends Panel implements ItemListener {
 		String[] items = {};
 		int flag = 0;
 		
-		if("±Û²Ã".equals(title)) {
+		if("ê¸€ê¼´".equals(title)) {
 			items = getFontNames();
 			flag = 1;
 			
@@ -172,11 +174,18 @@ public class ListPanel extends Panel implements ItemListener {
 	    return fontNames;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String[] getFontNames() {
+		/*
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	    Locale l = new Locale("ko_KR", "KOR");
 	    
 	    return ge.getAvailableFontFamilyNames(l);
+	    */
+		
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		return tk.getFontList();
+		
 	}
 	
 	public void drawParentPanel() {

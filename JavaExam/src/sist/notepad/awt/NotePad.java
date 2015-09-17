@@ -23,7 +23,7 @@ import java.awt.event.WindowEvent;
  *
  */
 public class NotePad  {
-	Frame f             = new Frame("Á¦¸ñ¾øÀ½-¸Ş¸ğÀå");
+	Frame f             = new Frame("ì œëª© ì—†ìŒ - ë©”ëª¨ì¥");
 	//static TextArea ta  = new TextArea();
 	static TextClass ta = TextClass.getInstance();
 			
@@ -52,7 +52,7 @@ public class NotePad  {
 	}
 	
 	public void drawStatusBar() {
-		Label l = new Label("Å×½ºÆ®");
+		Label l = new Label("ï¿½×½ï¿½Æ®");
 		Panel state = new Panel();
 		
 		state.add(l);

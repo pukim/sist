@@ -8,10 +8,10 @@ package sist.notepad.awt;
  *
  */
 public class Constants {
-	final static String[] menus = {"ÆÄÀÏ(F)", "ÆíÁı(E)", "¼­½Ä(O)", "º¸±â(V)", "µµ¿ò¸»(H)"};
-	final static String[] sFile = { "»õ·Î ¸¸µé±â(N)	Ctrl+N", "¿­±â(O)...Ctrl+O", "ÀúÀå(S)", 
-	           "´Ù¸¥ ÀÌ¸§À¸·Î ÀúÀå(A)...", "-", "ÆäÀÌÁö ¼³Á¤(U)...","ÀÎ¼â(P)", "-", "³¡³»±â"};
-	
-    final static String[] sForm  = {"ÀÚµ¿ ÁÙ ¹Ù²Ş(W)", "±Û²Ã(F)"};
-	final static String[] sStyle = {"º¸Åë", "±½°Ô", "±â¿ïÀÓ²Ã", "±½°Ô ±â¿ïÀÓ" };
+	final static String[] menus = {"íŒŒì¼(F)", "í¸ì§‘(E)", "ì„œì‹(O)", "ë³´ê¸°(V)", "ë„ì›€ë§(H)"}; 
+	final static String[] sFile = { "ìƒˆë¡œ ë§Œë“¤ê¸°(N)	Ctrl+N", "ì—´ê¸°(O)...Ctrl+O", "ì €ì¥(S)",  
+	 	           "ë‹¤ë¥¸ ì´ë¦„ìœ¼ë¡œ ì €ì¥(A)...", "-", "í˜ì´ì§€ ì„¤ì •(U)...","ì¸ì‡„(P)", "-", "ëë‚´ê¸°"}; 
+	 	 
+	final static String[] sForm  = {"ìë™ ì¤„ ë°”ê¿ˆ(W)", "ê¸€ê¼´(F)"}; 
+	final static String[] sStyle = {"ë³´í†µ", "êµµê²Œ", "ê¸°ìš¸ì„ê¼´", "êµµê²Œ ê¸°ìš¸ì„" }; 
 }
