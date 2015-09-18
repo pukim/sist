@@ -3,7 +3,7 @@
  */
 package sist.test;
 
-import kr.co.sist.utils.ElapsedTime;
+import org.ari.archi.utils.ElapsedTime;
 
 /**
  * @author owner
