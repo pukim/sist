@@ -1,13 +1,13 @@
 // ActionEventMenu.java
-// ¸Ş´º¿¡ Action ÀÌº¥Æ® Àû¿ë ¿¹Á¦ 
-// ¸Ş´º¸¦ ¼±ÅÃÇÏ¸é ÇØ´ç ¸Ş´ºÀÇ ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+// ë©”ë‰´ì— Action ì´ë²¤íŠ¸ ì ìš© ì˜ˆì œ 
+// ë©”ë‰´ë¥¼ ì„ íƒí•˜ë©´ í•´ë‹¹ ë©”ë‰´ì˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 // p.474
 /*
-ÀÌº¥Æ® ¼Ò½º - ÄÄÆ÷³ÍÆ®
-ÀÌº¥Æ® Å¬·¡½º - ÀÌº¥Æ® °´Ã¼
-ÀÌº¥Æ® ÇÚµé·¯ - ÀÌº¥Æ® ÇÚµé·¯ °´Ã¼
-¾Æ´äÅÍ(Adapter) Å¬·¡½º¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÌº¥Æ® Ã³¸®ÇÏ¸é, ÀÎÅÍÆäÀÌ½º¿¡ ´ëÇÑ ¸ğµç ¸Ş¼Òµå¸¦
-¿À¹ö¶óÀÌµùÇÏ¿© ±¸ÇöÇØ¿©ÇÑ´Ù. ex) WindowListener´Â 7°³ÀÇ ¸Ş¼Òµå°¡ ÀÖÀ¸¹Ç·Î, ¸ğµÎ ±¸ÇöÇÔ.
+ì´ë²¤íŠ¸ ì†ŒìŠ¤ - ì»´í¬ë„ŒíŠ¸
+ì´ë²¤íŠ¸ í´ë˜ìŠ¤ - ì´ë²¤íŠ¸ ê°ì²´
+ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ - ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ê°ì²´
+ì•„ë‹µí„°(Adapter) í´ë˜ìŠ¤ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì´ë²¤íŠ¸ ì²˜ë¦¬í•˜ë©´, ì¸í„°í˜ì´ìŠ¤ì— ëŒ€í•œ ëª¨ë“  ë©”ì†Œë“œë¥¼
+ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ êµ¬í˜„í•´ì—¬í•œë‹¤. ex) WindowListenerëŠ” 7ê°œì˜ ë©”ì†Œë“œê°€ ìˆìœ¼ë¯€ë¡œ, ëª¨ë‘ êµ¬í˜„í•¨.
 */
 package sist.awt.sample;
 
@@ -17,41 +17,41 @@ import java.awt.event.*;
 
 public class ActionEventMenu extends Applet implements ActionListener
 {
-	private TextField msgTxt = new TextField("¸Ş´º¼±ÅÃÇÏ¼¼¿ä", 30);
+	private TextField msgTxt = new TextField("ë©”ë‰´ì„ íƒí•˜ì„¸ìš”", 30);
 
 	public void init(){
-		Frame f = new Frame("¸Ş´º ÀÌº¥Æ® ÇÁ·Î±×·¥");
+		Frame f = new Frame("ë©”ë‰´ ì´ë²¤íŠ¸ í”„ë¡œê·¸ë¨");
 		f.setSize(this.getSize().width, this.getSize().height);
 		f.add("Center", msgTxt);
 
 		MenuBar mb = new MenuBar();
 
-		//ÆÄÀÏ ¸Ş´º ¸¸µé±â
-		Menu fileMenu = new Menu("ÆÄÀÏ");
-		itemAdd("»õ ÆÄÀÏ", fileMenu);
-		itemAdd("¿­±â", fileMenu);
+		//íŒŒì¼ ë©”ë‰´ ë§Œë“¤ê¸°
+		Menu fileMenu = new Menu("íŒŒì¼");
+		itemAdd("ìƒˆ íŒŒì¼", fileMenu);
+		itemAdd("ì—´ê¸°", fileMenu);
 		fileMenu.addSeparator();
-		itemAdd("´İ±â", fileMenu);
-		itemAdd("ÀúÀå", fileMenu);
-		itemAdd("»õ ÀÌ¸§À¸·Î", fileMenu);
+		itemAdd("ë‹«ê¸°", fileMenu);
+		itemAdd("ì €ì¥", fileMenu);
+		itemAdd("ìƒˆ ì´ë¦„ìœ¼ë¡œ", fileMenu);
 		fileMenu.addSeparator();
-		itemAdd("Ãâ·Â", fileMenu);
+		itemAdd("ì¶œë ¥", fileMenu);
 		fileMenu.addSeparator();
-		itemAdd("³¡", fileMenu);
+		itemAdd("ë", fileMenu);
 
-		//ÆíÁı ¸Ş´º ¸¸µé±â
-		Menu editMenu = new Menu("ÆíÁı");
-		itemAdd("Ãë¼Ò", editMenu);
+		//í¸ì§‘ ë©”ë‰´ ë§Œë“¤ê¸°
+		Menu editMenu = new Menu("í¸ì§‘");
+		itemAdd("ì·¨ì†Œ", editMenu);
 		editMenu.addSeparator();
-		itemAdd("Àß¶ó³»±â", editMenu);
-		itemAdd("º¹»çÇÏ±â", editMenu);
-		itemAdd("ºÙÀÌ±â", editMenu);
+		itemAdd("ì˜ë¼ë‚´ê¸°", editMenu);
+		itemAdd("ë³µì‚¬í•˜ê¸°", editMenu);
+		itemAdd("ë¶™ì´ê¸°", editMenu);
 
-		//¸Ş´º¸¦ ¸Ş´º¹Ù¿¡ Ãß°¡
+		//ë©”ë‰´ë¥¼ ë©”ë‰´ë°”ì— ì¶”ê°€
 		mb.add(fileMenu);
 		mb.add(editMenu);
 
-		//¸Ş´º¹Ù¸¦ Frame¿¡ Ãß°¡
+		//ë©”ë‰´ë°”ë¥¼ Frameì— ì¶”ê°€
         f.setMenuBar(mb);
 		f.setVisible(true);
 	}
@@ -63,6 +63,6 @@ public class ActionEventMenu extends Applet implements ActionListener
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-		msgTxt.setText(e.getActionCommand() + " À» ¼±ÅÃÇÏ¼Ì±º¿ä~! ");
+		msgTxt.setText(e.getActionCommand() + " ì„ ì„ íƒí•˜ì…¨êµ°ìš”~! ");
 	}
 }

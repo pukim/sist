@@ -1,7 +1,8 @@
 // ButtonHandler.java
-// ¹öÆ° ÇÚµé·¯ ¿¹Á¦
+// ë²„íŠ¼ í•¸ë“¤ëŸ¬ ì˜ˆì œ
 // p.460
 package sist.awt.sample;
+
 import java.awt.event.*;
 
 public class ButtonHandler implements ActionListener
@@ -9,6 +10,6 @@ public class ButtonHandler implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		String cmd = e.getActionCommand();
-		System.out.println(cmd + "¼±ÅÃ ÇÏ¼Ì½À´Ï´Ù.!");
+		System.out.println(cmd + "ì„ íƒ í•˜ì…¨ìŠµë‹ˆë‹¤.!");
 	}
 }

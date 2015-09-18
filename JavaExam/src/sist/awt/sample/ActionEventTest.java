@@ -1,14 +1,14 @@
 // ActionEventTest.java
-// Action event Ã³¸® ¿¹Á¦
-// ¹öÆ°¿¡ ActionEvent¸¦ Àû¿ëÇÏ¿© ÀÌº¥Æ® ¹ß»ı½Ã actionPerformed()
-// ¸Ş¼Òµå¸¦ È£ÃâÇÑ ÈÄ ÅØ½ºÆ® ÇÊµå¿¡ ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+// Action event ì²˜ë¦¬ ì˜ˆì œ
+// ë²„íŠ¼ì— ActionEventë¥¼ ì ìš©í•˜ì—¬ ì´ë²¤íŠ¸ ë°œìƒì‹œ actionPerformed()
+// ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œ í›„ í…ìŠ¤íŠ¸ í•„ë“œì— ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 // p.471
 /*
-ÀÌº¥Æ® ¼Ò½º - ÄÄÆ÷³ÍÆ®
-ÀÌº¥Æ® Å¬·¡½º - ÀÌº¥Æ® °´Ã¼
-ÀÌº¥Æ® ÇÚµé·¯ - ÀÌº¥Æ® ÇÚµé·¯ °´Ã¼
-¾Æ´äÅÍ(Adapter) Å¬·¡½º¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÌº¥Æ® Ã³¸®ÇÏ¸é, ÀÎÅÍÆäÀÌ½º¿¡ ´ëÇÑ ¸ğµç ¸Ş¼Òµå¸¦
-¿À¹ö¶óÀÌµùÇÏ¿© ±¸ÇöÇØ¿©ÇÑ´Ù. ex) WindowListener´Â 7°³ÀÇ ¸Ş¼Òµå°¡ ÀÖÀ¸¹Ç·Î, ¸ğµÎ ±¸ÇöÇÔ.
+ì´ë²¤íŠ¸ ì†ŒìŠ¤ - ì»´í¬ë„ŒíŠ¸
+ì´ë²¤íŠ¸ í´ë˜ìŠ¤ - ì´ë²¤íŠ¸ ê°ì²´
+ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ - ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ê°ì²´
+ì•„ë‹µí„°(Adapter) í´ë˜ìŠ¤ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì´ë²¤íŠ¸ ì²˜ë¦¬í•˜ë©´, ì¸í„°í˜ì´ìŠ¤ì— ëŒ€í•œ ëª¨ë“  ë©”ì†Œë“œë¥¼
+ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ êµ¬í˜„í•´ì—¬í•œë‹¤. ex) WindowListenerëŠ” 7ê°œì˜ ë©”ì†Œë“œê°€ ìˆìœ¼ë¯€ë¡œ, ëª¨ë‘ êµ¬í˜„í•¨.
 */
 package sist.awt.sample;
 
@@ -17,11 +17,11 @@ import java.awt.event.*;
 
 public class ActionEventTest extends Frame implements ActionListener
 {
-	//¸â¹ö º¯¼ö ¼±¾ğ
+	//ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
 	Button but1, but2;
 	TextField tf;
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public ActionEventTest()
 	{
 		super("Action Event");
@@ -41,10 +41,10 @@ public class ActionEventTest extends Frame implements ActionListener
 			}
 		});
 
-		but1 = new Button("¹öÆ°-1");
-		but2 = new Button("¹öÆ°-2");
+		but1 = new Button("ë²„íŠ¼-1");
+		but2 = new Button("ë²„íŠ¼-2");
 		
-		//¹öÆ°¿¡ °¨Áö ±â´É Ãß°¡
+		//ë²„íŠ¼ì— ê°ì§€ ê¸°ëŠ¥ ì¶”ê°€
 		but1.addActionListener(this);
 		but2.addActionListener(this);
 
@@ -59,16 +59,16 @@ public class ActionEventTest extends Frame implements ActionListener
 		setVisible(true);
 	}
 	
-    //ÀÌº¥Æ® ¹ß»ı½Ã µ¿ÀÛµÇ´Â ¸Ş¼Òµå
+    //ì´ë²¤íŠ¸ ë°œìƒì‹œ ë™ì‘ë˜ëŠ” ë©”ì†Œë“œ
 	public void actionPerformed(ActionEvent ae)
 	{
 		if(ae.getSource() == but1)
 		{
-			tf.setText(" ¹öÆ°-1ÀÌ ´­·È¾î¿ä");
+			tf.setText(" ë²„íŠ¼-1ì´ ëˆŒë ¸ì–´ìš”");
 		}
 		else if(ae.getSource() == but2)
 		{
-		    tf.setText(" ¹öÆ°-2ÀÌ ´­·È¾î¿ä");
+		    tf.setText(" ë²„íŠ¼-2ì´ ëˆŒë ¸ì–´ìš”");
 		}
 	}
 }

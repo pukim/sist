@@ -1,6 +1,6 @@
 // MMEventTest.java
-// ¸¶¿ì½º ¸ğ¼Ç ÀÌº¥Æ® ¿¹Á¦
-// Å¬¸¯ »óÅÂÀÇ ¸¶¿ì½º°¡ ¿òÁ÷ÀÌ´Â ÁÂÇ¥¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+// ë§ˆìš°ìŠ¤ ëª¨ì…˜ ì´ë²¤íŠ¸ ì˜ˆì œ
+// í´ë¦­ ìƒíƒœì˜ ë§ˆìš°ìŠ¤ê°€ ì›€ì§ì´ëŠ” ì¢Œí‘œë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 // p.487
 package sist.awt.sample;
 
@@ -9,7 +9,7 @@ import java.awt.event.*;
 
 public class MMEventTest extends MouseMotionAdapter
 {
-	Frame f = new Frame(" ¸¶¿ì½º ¸ğ¼Ç ÀÌº¥Æ® ¿¹Á¦");
+	Frame f = new Frame(" ë§ˆìš°ìŠ¤ ëª¨ì…˜ ì´ë²¤íŠ¸ ì˜ˆì œ");
 	Canvas c;
 	TextArea ta;
 

@@ -1,7 +1,8 @@
 // ButtonEvent.java
-// ¹öÆ° ÀÌº¥Æ® ¿¹Á¦
+// ë²„íŠ¼ ì´ë²¤íŠ¸ ì˜ˆì œ
 // p.459
 package sist.awt.sample;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -22,11 +23,11 @@ public class ButtonEvent extends Frame
 
 		ButtonHandler BH = new ButtonHandler();
 
-		b1 = new Button("¹öÆ°-1");
+		b1 = new Button("ë²„íŠ¼-1");
 		b1.addActionListener(BH);
-		b2 = new Button("¹öÆ°-2");
+		b2 = new Button("ë²„íŠ¼-2");
 		b2.addActionListener(BH);
-		b3= new Button("¹öÆ°-3");
+		b3= new Button("ë²„íŠ¼-3");
 		b3.addActionListener(BH);
 
 		add(b1);

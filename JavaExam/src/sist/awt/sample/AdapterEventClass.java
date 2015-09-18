@@ -1,14 +1,14 @@
 // AdapterEventClass.java
-// ÀÎÅÍÆäÀÌ½º(interface) Å¬·¡½º¸¦ ÀÌ¿ëÇÑ ÀÌº¥Æ® Ã³¸® ¿¹Á¦
-// WindowListener Å¬·¡½º¸¦ »ó¼ÓÇÏ¿© º°µµÀÇ ÀÌº¥Æ® ÇÚµé·¯¸¦ Á¤ÀÇÇÑ ÇÁ·Î±×·¥
-// WinAdapterClass.java ¿Í ÇÔ²² »ç¿ë
+// ì¸í„°í˜ì´ìŠ¤(interface) í´ë˜ìŠ¤ë¥¼ ì´ìš©í•œ ì´ë²¤íŠ¸ ì²˜ë¦¬ ì˜ˆì œ
+// WindowListener í´ë˜ìŠ¤ë¥¼ ìƒì†í•˜ì—¬ ë³„ë„ì˜ ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ë¥¼ ì •ì˜í•œ í”„ë¡œê·¸ë¨
+// WinAdapterClass.java ì™€ í•¨ê»˜ ì‚¬ìš©
 // p.469
 /*
-ÀÌº¥Æ® ¼Ò½º - ÄÄÆ÷³ÍÆ®
-ÀÌº¥Æ® Å¬·¡½º - ÀÌº¥Æ® °´Ã¼
-ÀÌº¥Æ® ÇÚµé·¯ - ÀÌº¥Æ® ÇÚµé·¯ °´Ã¼
-¾Æ´äÅÍ(Adapter) Å¬·¡½º¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÌº¥Æ® Ã³¸®ÇÏ¸é, ÀÎÅÍÆäÀÌ½º¿¡ ´ëÇÑ ¸ğµç ¸Ş¼Òµå¸¦
-¿À¹ö¶óÀÌµùÇÏ¿© ±¸ÇöÇØ¿©ÇÑ´Ù. ex) WindowListener´Â 7°³ÀÇ ¸Ş¼Òµå°¡ ÀÖÀ¸¹Ç·Î, ¸ğµÎ ±¸ÇöÇÔ.
+ì´ë²¤íŠ¸ ì†ŒìŠ¤ - ì»´í¬ë„ŒíŠ¸
+ì´ë²¤íŠ¸ í´ë˜ìŠ¤ - ì´ë²¤íŠ¸ ê°ì²´
+ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ - ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ê°ì²´
+ì•„ë‹µí„°(Adapter) í´ë˜ìŠ¤ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì´ë²¤íŠ¸ ì²˜ë¦¬í•˜ë©´, ì¸í„°í˜ì´ìŠ¤ì— ëŒ€í•œ ëª¨ë“  ë©”ì†Œë“œë¥¼
+ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ êµ¬í˜„í•´ì—¬í•œë‹¤. ex) WindowListenerëŠ” 7ê°œì˜ ë©”ì†Œë“œê°€ ìˆìœ¼ë¯€ë¡œ, ëª¨ë‘ êµ¬í˜„í•¨.
 */
 package sist.awt.sample;
 
@@ -17,36 +17,36 @@ import java.awt.event.*;
 
 public class AdapterEventClass extends Frame implements ActionListener
 {
-	//¸â¹ö º¯¼ö ¼±¾ğ
+	//ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
 	Button but1, but2;
 	TextArea txtA;
-	//À©µµ¿ì Adapter °´Ã¼ ·¹ÆÛ·±½º º¯¼ö ¼±¾ğ
+	//ìœˆë„ìš° Adapter ê°ì²´ ë ˆí¼ëŸ°ìŠ¤ ë³€ìˆ˜ ì„ ì–¸
 	WinAdapterClass WAC;
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public AdapterEventClass()
 	{
-		//Layout manager¼³Á¤
+		//Layout managerì„¤ì •
 		setLayout(new BorderLayout());
 
-		//°´Ã¼ ÀÎ½ºÅÏ½º
-		but1 = new Button("¿ŞÂÊ ¹öÆ°");
-		but2 = new Button("¾Æ·¡ÂÊ ¹öÆ°");
+		//ê°ì²´ ì¸ìŠ¤í„´ìŠ¤
+		but1 = new Button("ì™¼ìª½ ë²„íŠ¼");
+		but2 = new Button("ì•„ë˜ìª½ ë²„íŠ¼");
 		txtA = new TextArea();
 		
-		//¹öÆ°¿¡ °¨Áö ±â´É Ãß°¡
+		//ë²„íŠ¼ì— ê°ì§€ ê¸°ëŠ¥ ì¶”ê°€
 		but1.addActionListener(this);
 		but2.addActionListener(this);
 
-		//ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+		//í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		add("North", but1);
 		add("South", but2);
 		add("Center", txtA);
 
-		//À©µµ¿ì Adapter °´Ã¼ ÀÎ½ºÅÏ½º
+		//ìœˆë„ìš° Adapter ê°ì²´ ì¸ìŠ¤í„´ìŠ¤
 		WAC = new WinAdapterClass();
 
-		//Frame°´Ã¼¿¡ °¨Áö ±â´É Ãß°¡
+		//Frameê°ì²´ì— ê°ì§€ ê¸°ëŠ¥ ì¶”ê°€
 		addWindowListener(WAC);
 	}
 	
@@ -57,16 +57,16 @@ public class AdapterEventClass extends Frame implements ActionListener
 		AEC.show();
 	}
 
-	//¹öÆ° ÀÌº¥Æ® ¹ß»ı½Ã µ¿ÀÛµÇ´Â ¸Ş¼Òµå ±¸Çö
+	//ë²„íŠ¼ ì´ë²¤íŠ¸ ë°œìƒì‹œ ë™ì‘ë˜ëŠ” ë©”ì†Œë“œ êµ¬í˜„
 	public void actionPerformed(ActionEvent e)
 	{
-	    //°´Ã¼ÀÇ ¼Ò½º¸¦ ¾ò¾î¿Í ¹öÆ° °´Ã¼È­ ½ÃÅ´
+	    //ê°ì²´ì˜ ì†ŒìŠ¤ë¥¼ ì–»ì–´ì™€ ë²„íŠ¼ ê°ì²´í™” ì‹œí‚´
 		Button but = (Button)e.getSource();
 		String lab = but.getLabel();
 
-		if(lab.equals("¿ŞÂÊ ¹öÆ°"))
-		    txtA.setText(txtA.getText() + " ¿ŞÂÊ ¹öÆ°ÀÌ ´­·È¾î¿ä" +"\n");
+		if(lab.equals("ì™¼ìª½ ë²„íŠ¼"))
+		    txtA.setText(txtA.getText() + " ì™¼ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì–´ìš”" +"\n");
 		else
-		    txtA.setText(txtA.getText() + " ¾Æ·¡ÂÊ ¹öÆ°ÀÌ ´­·È¾î¿ä" +"\n");
+		    txtA.setText(txtA.getText() + " ì•„ë˜ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì–´ìš”" +"\n");
 	}
 }

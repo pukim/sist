@@ -1,30 +1,31 @@
 // OuterEventClass.java
-// inner Å¬·¡½º ÇüÅÂ¸¦ °¡Áø ÀÌº¥Æ® Ã³¸® ÇÁ·Î±×·¥ ¿¹Á¦
-// ³»ºÎ Å¬·¡½º¸¦ »ç¿ëÇÏ¿© ÀÌº¥Æ® ÇÚµé·¯ Å¬·¡½º Á¤ÀÇ
+// inner í´ë˜ìŠ¤ í˜•íƒœë¥¼ ê°€ì§„ ì´ë²¤íŠ¸ ì²˜ë¦¬ í”„ë¡œê·¸ë¨ ì˜ˆì œ
+// ë‚´ë¶€ í´ë˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ í´ë˜ìŠ¤ ì •ì˜
 // p.463
 /*
-ÀÌº¥Æ® ¼Ò½º - ÄÄÆ÷³ÍÆ®
-ÀÌº¥Æ® Å¬·¡½º - ÀÌº¥Æ® °´Ã¼
-ÀÌº¥Æ® ÇÚµé·¯ - ÀÌº¥Æ® ÇÚµé·¯ °´Ã¼
+ì´ë²¤íŠ¸ ì†ŒìŠ¤ - ì»´í¬ë„ŒíŠ¸
+ì´ë²¤íŠ¸ í´ë˜ìŠ¤ - ì´ë²¤íŠ¸ ê°ì²´
+ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ - ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ê°ì²´
 */
 package sist.awt.sample;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class OuterEventClass extends Frame
 {
-	//¸â¹ö º¯¼ö ¼±¾ğ
+	//ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
 	Button but1, but2;
 	TextArea txtA;
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public OuterEventClass()
 	{
 		InnerEventClass IEC;
 
-		//Layout manager¼³Á¤
+		//Layout managerì„¤ì •
 		setLayout(new BorderLayout());
-		//À©µµ¿ì Ã¢ ´İ±â ÀÌº¥Æ®¸¦ ÀÚ±âÀÚ½ÅÀÇ °´Ã¼¿¡ ºÙ¿©¹ö¸²
+		//ìœˆë„ìš° ì°½ ë‹«ê¸° ì´ë²¤íŠ¸ë¥¼ ìê¸°ìì‹ ì˜ ê°ì²´ì— ë¶™ì—¬ë²„ë¦¼
         addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent we){
@@ -32,18 +33,18 @@ public class OuterEventClass extends Frame
 			}
 		});
 
-		but1 = new Button("¿ŞÂÊ ¹öÆ°");
-		but2 = new Button("¾Æ·¡ÂÊ ¹öÆ°");
+		but1 = new Button("ì™¼ìª½ ë²„íŠ¼");
+		but2 = new Button("ì•„ë˜ìª½ ë²„íŠ¼");
 		txtA = new TextArea();
 
-		//inner Å¬·¡½º ÀÎ½ºÅÏ½º
+		//inner í´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤
 		IEC = new InnerEventClass();
 		
-		//¹öÆ°¿¡ °¨Áö ±â´É Ãß°¡
+		//ë²„íŠ¼ì— ê°ì§€ ê¸°ëŠ¥ ì¶”ê°€
 		but1.addActionListener(IEC);
 		but2.addActionListener(IEC);
 
-		//ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+		//í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		add("North", but1);
 		add("South", but2);
 		add("Center", txtA);
@@ -51,17 +52,17 @@ public class OuterEventClass extends Frame
 
     class InnerEventClass implements ActionListener
     {
-	    //ÀÌº¥Æ® ¹ß»ı½Ã µ¿ÀÛµÇ´Â ¸Ş¼Òµå
+	    //ì´ë²¤íŠ¸ ë°œìƒì‹œ ë™ì‘ë˜ëŠ” ë©”ì†Œë“œ
 	    public void actionPerformed(ActionEvent e)
 	    {
-		    //°´Ã¼ÀÇ ¼Ò½º¸¦ ¾ò¾î¿Í ¹öÆ° °´Ã¼È­ ½ÃÅ´
+		    //ê°ì²´ì˜ ì†ŒìŠ¤ë¥¼ ì–»ì–´ì™€ ë²„íŠ¼ ê°ì²´í™” ì‹œí‚´
 		    Button but = (Button)e.getSource();
 		    String lab = but.getLabel();
 
-		    if(lab.equals("¿ŞÂÊ ¹öÆ°"))
-			    txtA.setText(txtA.getText() + " ¿ŞÂÊ ¹öÆ°ÀÌ ´­·È¾î¿ä" +"\n");
+		    if(lab.equals("ì™¼ìª½ ë²„íŠ¼"))
+			    txtA.setText(txtA.getText() + " ì™¼ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì–´ìš”" +"\n");
 		    else
-			    txtA.setText(txtA.getText() + " ¾Æ·¡ÂÊ ¹öÆ°ÀÌ ´­·È¾î¿ä" +"\n");
+			    txtA.setText(txtA.getText() + " ì•„ë˜ìª½ ë²„íŠ¼ì´ ëˆŒë ¸ì–´ìš”" +"\n");
 		}
 	}
 

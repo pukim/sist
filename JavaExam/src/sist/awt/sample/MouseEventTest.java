@@ -1,14 +1,15 @@
 // MouseEventTest.java
-// ¸¶¿ì½º ÀÌº¥Æ® ¿¹Á¦
-// ¸¶¿ì½ºÀÇ Æ÷ÀÎÅÍ À§Ä¡¿Í Å¬¸¯ ¿©ºÎ¸¦ ÅØ½ºÆ®¿µ·Â¿¡ ¸Ş½ÃÁö·Î ³ªÅ¸³»´Â ¸¶¿ì½º ÀÌº¥Æ® ÇÁ·Î±×·¥
+// ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ ì˜ˆì œ
+// ë§ˆìš°ìŠ¤ì˜ í¬ì¸í„° ìœ„ì¹˜ì™€ í´ë¦­ ì—¬ë¶€ë¥¼ í…ìŠ¤íŠ¸ì˜ë ¥ì— ë©”ì‹œì§€ë¡œ ë‚˜íƒ€ë‚´ëŠ” ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ í”„ë¡œê·¸ë¨
 // p.485
 package sist.awt.sample;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class MouseEventTest extends MouseAdapter
 {
-	Frame f = new Frame(" ¸¶¿ì½º ÀÌº¥Æ® ¿¹Á¦");
+	Frame f = new Frame(" ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ ì˜ˆì œ");
 	Canvas c;
 	TextArea ta;
 

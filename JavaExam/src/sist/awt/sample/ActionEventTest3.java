@@ -1,7 +1,7 @@
-// ����Ʈ�ڷ� ��ư �̺�Ʈ ���� ���α׷�
+// 프린트자료 버튼 이벤트 예제 프로그램
 /*
-�ƴ��� Ŭ������ ����ϸ� �������̽��� ���� ��� �޼ҵ带 �������̵��Ͽ� ��������
-�ʾƵ� ��. �ƴ��� Ŭ���� ��� ���ϸ� ��� �޼ҵ带 �������̵��ؾ� ��
+아답터 클래스를 사용하면 인터페이스에 대한 모든 메소드를 오버라이딩하여 구현하지
+않아도 됨. 아답터 클래스 사용 안하면 모든 메소드를 오버라이딩해야 함
 */
 package sist.awt.sample;
 
@@ -14,7 +14,7 @@ class ActionEventTest3 extends Frame
 	public ActionEventTest3(){
 		setLayout(new FlowLayout());
 
-		// �ƴ��� Ŭ���� ����ϴ� �κ�, �ڱ� �ڽ��� ��ü�� �ٿ�����
+		// 아답터 클래스 사용하는 부분, 자기 자신의 객체에 붙여버림
 		addWindowListener(new WindowAdapter() 
 		{
 			public void windowClosing(WindowEvent we){

@@ -1,6 +1,6 @@
 // AdjustEventTest.java
-// Adjustment event Ã³¸® ¿¹Á¦ 
-// ½ºÅ©·Ñ¹Ù ÄÄÆ÷³ÍÆ®¸¦ ¸¸µé°í ÀÌ°ÍÀÇ À§Ä¡¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+// Adjustment event ì²˜ë¦¬ ì˜ˆì œ 
+// ìŠ¤í¬ë¡¤ë°” ì»´í¬ë„ŒíŠ¸ë¥¼ ë§Œë“¤ê³  ì´ê²ƒì˜ ìœ„ì¹˜ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 // p.477
 package sist.awt.sample;
 
@@ -28,7 +28,7 @@ public class AdjustEventTest extends Frame implements AdjustmentListener
 
 		p = new Panel();
 		tf = new TextField();
-		//½ºÅ©·Ñ¹Ù ¼Ó¼º -> ¹æÇâ, ½ºÅ©·Ñ¹ÙÀ§Ä¡, Å©±â, ÃÖ¼Ò, ÃÖ´ë
+		//ìŠ¤í¬ë¡¤ë°” ì†ì„± -> ë°©í–¥, ìŠ¤í¬ë¡¤ë°”ìœ„ì¹˜, í¬ê¸°, ìµœì†Œ, ìµœëŒ€
 		sb = new Scrollbar(Scrollbar.HORIZONTAL, 10, 2, 0, 102); 
 		sb.addAdjustmentListener(this);
 
@@ -39,7 +39,7 @@ public class AdjustEventTest extends Frame implements AdjustmentListener
 		setSize(400, 100);
 		setVisible(true);
 	}
-	//ÀÌº¥Æ® ¹ß»ı½Ã µ¿ÀÛµÇ´Â ¸Ş¼Òµå
+	//ì´ë²¤íŠ¸ ë°œìƒì‹œ ë™ì‘ë˜ëŠ” ë©”ì†Œë“œ
 	public void adjustmentValueChanged(AdjustmentEvent ae)
 	{
 		tf.setText("Position : " + sb.getValue());

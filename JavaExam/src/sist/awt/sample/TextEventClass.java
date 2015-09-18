@@ -1,39 +1,40 @@
 // TextEventClass.java
-// ÅØ½ºÆ® ÀÌº¥Æ® ¿¹Á¦
-// TextField¿¡ Key¸¦ Ä¡¸é TextArea¿¡ ¸Ş½ÃÁö ³ª¿À°Ô ÇÔ
+// í…ìŠ¤íŠ¸ ì´ë²¤íŠ¸ ì˜ˆì œ
+// TextFieldì— Keyë¥¼ ì¹˜ë©´ TextAreaì— ë©”ì‹œì§€ ë‚˜ì˜¤ê²Œ í•¨
 // p.489
 /*
-ÀÌº¥Æ® ¼Ò½º - ÄÄÆ÷³ÍÆ®
-ÀÌº¥Æ® Å¬·¡½º - ÀÌº¥Æ® °´Ã¼
-ÀÌº¥Æ® ÇÚµé·¯ - ÀÌº¥Æ® ÇÚµé·¯ °´Ã¼
-¾Æ´äÅÍ(Adapter) Å¬·¡½º¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÌº¥Æ® Ã³¸®ÇÏ¸é, ÀÎÅÍÆäÀÌ½º¿¡ ´ëÇÑ ¸ğµç ¸Ş¼Òµå¸¦
-¿À¹ö¶óÀÌµùÇÏ¿© ±¸ÇöÇØ¿©ÇÑ´Ù. ex) WindowListener´Â 7°³ÀÇ ¸Ş¼Òµå°¡ ÀÖÀ¸¹Ç·Î, ¸ğµÎ ±¸ÇöÇÔ.
+ì´ë²¤íŠ¸ ì†ŒìŠ¤ - ì»´í¬ë„ŒíŠ¸
+ì´ë²¤íŠ¸ í´ë˜ìŠ¤ - ì´ë²¤íŠ¸ ê°ì²´
+ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ - ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ê°ì²´
+ì•„ë‹µí„°(Adapter) í´ë˜ìŠ¤ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì´ë²¤íŠ¸ ì²˜ë¦¬í•˜ë©´, ì¸í„°í˜ì´ìŠ¤ì— ëŒ€í•œ ëª¨ë“  ë©”ì†Œë“œë¥¼
+ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ êµ¬í˜„í•´ì—¬í•œë‹¤. ex) WindowListenerëŠ” 7ê°œì˜ ë©”ì†Œë“œê°€ ìˆìœ¼ë¯€ë¡œ, ëª¨ë‘ êµ¬í˜„í•¨.
 */
 package sist.awt.sample;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class TextEventClass extends Frame implements TextListener, KeyListener
 {
-	//¸â¹ö º¯¼ö ¼±¾ğ
+	//ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
 	TextArea txtA;
 	TextField txtF;
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public TextEventClass()
 	{
-		super("ÅØ½ºÆ® º¯È­ ÀÌº¥Æ®");
+		super("í…ìŠ¤íŠ¸ ë³€í™” ì´ë²¤íŠ¸");
 
 		WinAdapterClass WAC;
 		WAC = new WinAdapterClass();
 
 		setLayout(new BorderLayout());
 
-		//°´Ã¼ ÀÎ½ºÅÏ½º
+		//ê°ì²´ ì¸ìŠ¤í„´ìŠ¤
 		txtF = new TextField();
 		txtA = new TextArea();
 
-		//ÅØ½ºÆ® ÇÊµå¿¡ °¨Áö±â´É Ãß°¡
+		//í…ìŠ¤íŠ¸ í•„ë“œì— ê°ì§€ê¸°ëŠ¥ ì¶”ê°€
 		txtF.addTextListener(this);
 		txtF.addKeyListener(this);
 		addWindowListener(WAC);
@@ -41,16 +42,16 @@ public class TextEventClass extends Frame implements TextListener, KeyListener
 		add(txtA, BorderLayout.CENTER);
 	}
 
-	//TextListener ÀÎÅÍÆäÀÌ½º Ãß»ó ¸Ş¼Òµå ±¸Çö
+	//TextListener ì¸í„°í˜ì´ìŠ¤ ì¶”ìƒ ë©”ì†Œë“œ êµ¬í˜„
 	public void textValueChanged(TextEvent te)
 	{
-		txtA.setText(txtA.getText() + "±ÛÀÚ ¹Ù²ò´Ï´Ù.!" + "\n");
+		txtA.setText(txtA.getText() + "ê¸€ì ë°”ë€ë‹ˆë‹¤.!" + "\n");
 	}
 
-	//KeyListener ÀÎÅÍÆäÀÌ½º Ãß»ó ¸Ş¼Òµå ±¸Çö
+	//KeyListener ì¸í„°í˜ì´ìŠ¤ ì¶”ìƒ ë©”ì†Œë“œ êµ¬í˜„
 	public void keyTyped(KeyEvent ke)
 	{
-		txtA.setText(txtA.getText() + ke.getKeyChar() + "¸¦ Ä¡¼Ì±º¿ä!" + "\n");
+		txtA.setText(txtA.getText() + ke.getKeyChar() + "ë¥¼ ì¹˜ì…¨êµ°ìš”!" + "\n");
 	}
 	public void keyPressed(KeyEvent ke){
 	}
@@ -65,7 +66,7 @@ public class TextEventClass extends Frame implements TextListener, KeyListener
 		TEC.show();
 	}
 
-	//inner Å¬·¡½º
+	//inner í´ë˜ìŠ¤
 	class WinAdapterClass extends WindowAdapter
 	{
 		public void windowClosing(WindowEvent we)
