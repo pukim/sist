@@ -1,3 +1,5 @@
+-- http://www.dba-oracle.com/t_converting_rows_columns.htm
+
 select to_char(hiredate, 'yyyy') hdate
       ,listagg(ename, ',')
 within group (order by ename) enames
