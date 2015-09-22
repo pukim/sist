@@ -11,7 +11,7 @@ import org.ari.archi.seed.seedx;
  */
 public class SeedUtils {
 	
-	private SeedUtils() {
+	public void seedUtils(String orgData) {
 		int pdwRoundKey[] = new int[32];
 		// User secret key
 		byte pbUserKey[]  = {(byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00,
@@ -27,7 +27,6 @@ public class SeedUtils {
 		byte pbCipher[]   = new byte[16];
 		byte pbPlain[]    = new byte[16];
 	
-		String orgData = "1234567890ABCDEF";
 		
 		pbData = chgStr2Byte(orgData);
 		System.out.print("[ Test SEED reference code ]"+"\n");
@@ -71,10 +70,11 @@ public class SeedUtils {
 
 		for(int i = 0; i < buffer.length; i++) { 
 			int bpos = i << 1; 
+			/*
 			b[bpos] = (byte) ((buffer[i]&0xFF00)>>8); 
-
 			b[bpos + 1] = (byte) (buffer[i]&0x00FF); 
-
+			*/
+			b[i] = (byte) (buffer[i]&0x00FF);
 		} 
 		return b; 
 	}
@@ -82,5 +82,9 @@ public class SeedUtils {
 	public static void main(String[] args) {
 		
 		SeedUtils su = new SeedUtils();
+		String s = "APPLEapple";
+		
+		
+		su.seedUtils(s);
 	}	
 }
