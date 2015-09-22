@@ -22,8 +22,8 @@ public class DisplayArea {
 		Font  fnt = new Font("Serif", Font.PLAIN, 20);
 		
 		dsp.setFont(fnt);
-		dsp.setBounds(30, 50, 330, 150);
-		dsp.setBackground(Color.GRAY);
+		dsp.setBounds(30, 50, 290, 120);
+		dsp.setBackground(Color.LIGHT_GRAY);
 		dsp.setAlignment(dsp.RIGHT);
 	}
 

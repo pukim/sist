@@ -3,11 +3,7 @@
  */
 package sist.calculator;
 
-import java.applet.Applet;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Frame;
-import java.awt.Label;
 
 /**
  * @author Administrator
@@ -33,7 +29,7 @@ public class Calculator {
 	public Calculator(String s) {
 		f = new Frame(s);
 		
-		f.setSize(400, 450);
+		f.setSize(350, 450);
 		f.setLayout(null);
 		f.addWindowListener(new EventHandler());
 	}
