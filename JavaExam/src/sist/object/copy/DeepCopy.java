@@ -71,6 +71,41 @@ public class DeepCopy {
 		
 	}
 	
+	public void copy2_1() {
+		route r1 = new route();
+		route r2 = new route();
+		
+		r1.path = new ArrayList<Integer>();
+		
+		r1.path.add(10);
+		r1.path.add(20);
+		r1.path.add(30);
+		
+		r1.cost = 3.14;
+		
+	
+		r2.path = new ArrayList<Integer>();
+		r2.path.add(40);
+		
+		System.out.println(new Object(){}.getClass().getEnclosingMethod().getName());
+		System.out.println("before :" + r1.hashCode() + ", " + r2.hashCode());
+
+		
+		print(r1);
+		print(r2);
+		print(r1, r2);
+		
+		r2 = r1;
+		
+		System.out.println("after :" + r1.hashCode() + ", " + r2.hashCode());
+
+		
+		print(r1);
+		print(r2);
+		print(r1, r2);
+
+	}
+	
 	public void copy2() {
 		route r1 = new route();
 		route r2 = new route();
@@ -83,16 +118,19 @@ public class DeepCopy {
 		
 		r1.cost = 3.14;
 		
-		r2 = r1;
+		//r2 = r1;
+		r2.path = new ArrayList<Integer>();
+		r2.path.add(40);
 		
 		System.out.println(new Object(){}.getClass().getEnclosingMethod().getName());
-		
+		System.out.println("before :" + r1.hashCode() + ", " + r2.hashCode());
+
 		
 		print(r1);
 		print(r2);
 		print(r1, r2);
 	}
-	
+
 	public void copy3() {
 		route r1 = new route();
 		route r2 = new route();
@@ -146,7 +184,9 @@ public class DeepCopy {
 		DeepCopy dc = new DeepCopy();
 		
 		dc.copy1();
-		dc.copy2();
+		//dc.copy2();
+		dc.copy2_1();
+		
 		dc.copy3();
 		dc.copy4();
 	}
