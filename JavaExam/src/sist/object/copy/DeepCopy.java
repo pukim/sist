@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 class route implements Cloneable {
 	ArrayList<Integer> path;
-	double cost;
+	double             cost;
 	
 	public route clone() throws CloneNotSupportedException {
 		route route = (route) super.clone();
@@ -63,6 +63,8 @@ public class DeepCopy {
 		
 		System.out.println(new Object(){}.getClass().getEnclosingMethod().getName());
 		
+		r2.path.add(40);
+		
 		print(r1);
 		print(r2);
 		print(r1, r2);
@@ -108,6 +110,8 @@ public class DeepCopy {
 		} catch(Exception e) { e.printStackTrace(); }
 		
 		System.out.println(new Object(){}.getClass().getEnclosingMethod().getName());
+		
+		r2.path.add(40);
 		
 		print(r1);
 		print(r2);
