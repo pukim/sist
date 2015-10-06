@@ -3,7 +3,9 @@
  */
 package sist.mybatis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,19 +23,45 @@ public class GetData {
 	}
 	
 
-	public HashMap getEmp(String val) {
+	public ArrayList getEmp(String val) {
 		SqlSession session = sqlSessionFactory.openSession();
-		HashMap hm = new HashMap();
+		
+		ArrayList result = null;
 		
 		try {
-			hm = (HashMap)session.selectMap("sample.getEmp", val);
+			result = (ArrayList)session.selectList("getEmpList");
 		} catch(Exception e) {
 	        session.rollback();
 	        e.printStackTrace();
 	    } finally {
 	        session.close();
 	    }
-		System.out.println("date " + hm);
-		return hm;
+		
+		return result;
 	}
+	
+	public HashMap getMap(String val) {
+        SqlSession session = sqlSessionFactory.openSession();
+		
+		HashMap result = null;
+		HashMap param  = new HashMap();
+		String emp_no  = val;
+		
+		param.put("emp_no", val);
+		
+		try {
+			//result = (HashMap)session.selectMap("sample.getEmp", emp_no);
+			result = (HashMap)session.selectMap("sample.getEmp", param, "emp_no");
+		
+		} catch(Exception e) {
+	        session.rollback();
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
+		
+		return result;
+		
+	}
+	
 }
