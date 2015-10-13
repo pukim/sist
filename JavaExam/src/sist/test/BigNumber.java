@@ -47,10 +47,10 @@ public class BigNumber {
 	}
 	
 	public void step2(int val) {
-		long amnt = (long)(val / 1.1);
-		long vat  = (long)(val - amnt);
+		long  amnt = Math.round(val / 1.1f);
+		long  vat  = val - amnt;
 		
-		System.out.println("amount : " + amnt);
+		System.out.println("amount : " + amnt + ", " + val / 1.1f);
 		System.out.println("vat    : " + vat);
 		System.out.println("Total  : " + (amnt + vat));
 	}
@@ -59,7 +59,7 @@ public class BigNumber {
 		BigNumber bn = new BigNumber();
 		
 		//bn.step1();
-		bn.step2(110);
+		bn.step2(7210);
 		
 	}
 }
