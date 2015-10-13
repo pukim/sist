@@ -8,8 +8,8 @@ import java.sql.*;
 
 public class GetEmp {
 	public static void main(String[] args) {
-		String DB_URL = "jdbc:oracle:thin:@211.63.89.161:1521:orcl";
-	//	String DB_URL = "jdbc:oracle:thin:@localhost:1521:orcl2";
+	//	String DB_URL = "jdbc:oracle:thin:@211.63.89.161:1521:orcl";
+		String DB_URL = "jdbc:oracle:thin:@211.63.89.210:1521:orcl2";
 		String DB_USER = "scott";
 		String DB_PASSWORD = "tiger";
 
@@ -19,20 +19,20 @@ public class GetEmp {
 
 		String query = "SELECT * FROM emp";
 		try {
-			// µå¶óÀÌ¹ö¸¦ ·ÎµùÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ñ´ï¿½.
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e ) {
 			e.printStackTrace();
 		}
 
 		try {
-			// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ¿¬°áÀ» ¼³Á¤ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-			// Statement¸¦ °¡Á®¿Â´Ù.
+			// Statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 			stmt = conn.createStatement();
 
-			// SQL¹®À» ½ÇÇàÇÑ´Ù.
+			// SQLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			rs = stmt.executeQuery(query);
 
 			while (rs.next()) { 
@@ -44,7 +44,7 @@ public class GetEmp {
 				String sal = rs.getString(6);
 				String comm = rs.getString(7);
 				String depno = rs.getString(8);
-				// °á°ú¸¦ Ãâ·ÂÇÑ´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				System.out.println( 
 					empno + " : " + ename + " : " + job + " : " + mgr
 					+ " : " + hiredate + " : " + sal + " : " + comm + " : "
@@ -54,13 +54,13 @@ public class GetEmp {
 			e.printStackTrace();
 		} finally {
 			try {
-				// ResultSet¸¦ ´Ý´Â´Ù.
+				// ResultSetï¿½ï¿½ ï¿½Ý´Â´ï¿½.
 				rs.close();
-				// Statement¸¦ ´Ý´Â´Ù.
+				// Statementï¿½ï¿½ ï¿½Ý´Â´ï¿½.
 				stmt.close();
-				// Connection¸¦ ´Ý´Â´Ù.
+				// Connectionï¿½ï¿½ ï¿½Ý´Â´ï¿½.
 				conn.close();
 			} catch ( SQLException e ) {}
 		}
-	} // main()ÀÇ ³¡
-} // Å¬·¡½ºÀÇ ³¡
+	} // main()ï¿½ï¿½ ï¿½ï¿½
+} // Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½

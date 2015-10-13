@@ -5,6 +5,8 @@ package sist.object.copy;
 
 import java.util.ArrayList;
 
+import org.ari.archi.utils.ElapsedTime;
+
 /**
  * @author Administrator
  *
@@ -180,14 +182,45 @@ public class DeepCopy {
 		print(r1, r2);
 	}
 	
+	public void copyTest() {
+		copy1();
+		copy2();
+		copy2_1();
+		
+		copy3();
+		copy4();
+	}
+	
+	public void creatTime1() {
+
+		
+		
+	}
+	
 	public static void main(String[] args) {
-		DeepCopy dc = new DeepCopy();
+		//DeepCopy dc = new DeepCopy();
+		//dc.copyTest();
+		ElapsedTime rt = ElapsedTime.getInstance();
 		
-		dc.copy1();
-		//dc.copy2();
-		dc.copy2_1();
 		
-		dc.copy3();
-		dc.copy4();
+		rt.start();
+		try {
+			DeepCopy dc = new DeepCopy();
+			for(long l=0; l<100000000; l++) {
+				Object dcc = dc.clone();
+			}
+		} catch(Exception e) {}
+		rt.stop();
+		System.out.println(rt);
+		
+		rt.reSet();
+		rt.start();
+		
+		for(long l=0; l<100000000; l++) {
+			new DeepCopy();
+		}
+		rt.stop();
+		
+		System.out.println(rt);
 	}
 }

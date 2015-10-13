@@ -10,10 +10,11 @@ public class Name {
 	private String first, last;
 	public Name(String first, String last) {
 		this.first = first;
-		this.last = last;
+		this.last  = last;
 		
-		toString();
+	//	toString();
 	}
+	
 	
 	public boolean equals(Object o) {
 		
@@ -23,8 +24,17 @@ public class Name {
 		return n.first.equals(first) && n.last.equals(last);
 	}
 	
+	/**
+	 * Override hashCode when overriding equals
+     * Obey general contracts when overriding
+     * 
+	public int hashCode() {
+		return 31 * first.hashCode() + last.hashCode();
+	}
+	**/
+	
 	public String toString() {
-		return String.valueOf(this.hashCode());
+		return String.valueOf(System.identityHashCode(this));
 	}
 	
 	public static void main(String[] args) {

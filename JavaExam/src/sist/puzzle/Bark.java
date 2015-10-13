@@ -12,7 +12,7 @@ class Dog {
 class Basenji extends Dog {
 	public static void bark() {
 		// No dynamic dispatch on static methods
-		// Static methods can¡¯t be overridden
+		// Static methods can't be overridden
 		System.out.print("x");
 	}
 }
@@ -25,6 +25,7 @@ public class Bark {
 		woofer.bark();
 		nipper.bark();
 		
+		// static access.
 		Dog.bark();
 		Basenji.bark();
 	}
