@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -164,6 +165,36 @@ public class ObjMerge {
 	        // do something sensible here
 	    }
 	    return nonNullProperties;
+	}
+	
+	public Object newClass(Object mainObj, Object subObj) {
+		
+		Class mainClass = mainObj.getClass();
+		Class subClass  = subObj.getClass();
+		Class mergeClass = null;
+		
+		Map<Class, PropertyDescriptor[]> descriptorsMap = new HashMap<Class, PropertyDescriptor[]>();
+		
+		if(mainObj == null || subObj == null) {
+            throw new NullPointerException("A null paramter was passed into updateObject");
+        }
+ 
+		if(!mainObj.equals(subObj)) {
+			PropertyDescriptor[] descriptors = descriptorsMap.get(mainClass);
+            if (descriptors == null) {
+                //descriptors = PropertyUtils.getPropertyDescriptors(mainClass); org.apache.commons.beanutils.PropertyUtils;
+            	descriptors = mainObj.getPropertyDescriptors(mainClass);
+                descriptorsMap.put(mainClass, descriptors);
+            }
+ 
+ 
+            for (PropertyDescriptor descriptor : descriptors)
+            {
+                updateProperty(originalObject, updateObject, descriptor);
+            }
+
+		}
+		return mergeClass;
 	}
 	
 	public static void main(String[] args) {

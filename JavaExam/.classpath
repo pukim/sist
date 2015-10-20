@@ -7,5 +7,11 @@
 	<classpathentry kind="lib" path="libs/ojdbc6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="libs/mybatis/mybatis-3.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/http_client/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/http_client/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/http_client/httpclient-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/http_client/httpclient-cache-4.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/http_client/httpcore-4.4.3.jar"/>
+	<classpathentry kind="lib" path="C:/work/3rdlibs/apache_cxf/cxf-core-3.1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
