@@ -11,22 +11,19 @@ import org.apache.cxf.io.CachedOutputStream;
 
 public class CallRestWS {
 	private String restClient() throws Exception{
-		//String addr = "http://openapi.airport.kr/openapi/service/StatusOfPassengerArrivalsEN/getPassengerArrivalsEN"+"?ServiceKey=";
-		//String serviceKey = "YcoW7BSLwCQSZej0ziSIdrK6udQyleQhp7fvTpKM3iRDD3Ox4dEnOhD4BsraHoFhvMxBx%2FZjZRDfozLZlQCm2g%3D%3D";
-		
-		//addr = "http://openapi.airport.kr/openapi/service/StatusOfCargoArrivalsKR/getCargoArrivalsKR"+"?ServiceKey=";
-		//serviceKey = "yPo3PuvE1sQkpdCvurcISjsT4fLb1ELGDxfNWCO5Lc3e5n5JN7sehR0FKB408%2BnNiKCH38hGFLwl%2F7FIIAi6WQ%3D%3D";
-		
-		/* 놀이 시설 */
-		String addr = "http://openapi.cpf.go.kr/openapi/service/rest/ChildPlyFcltSafeInspctStatsInfoService/getSafeInspctStatsInfo"+"?ServiceKey=";
-		String serviceKey = "YcoW7BSLwCQSZej0ziSIdrK6udQyleQhp7fvTpKM3iRDD3Ox4dEnOhD4BsraHoFhvMxBx%2FZjZRDfozLZlQCm2g%3D%3D";		
-		
-		
+		             
 		String parameter = "";
-		
+		//String addr = "http://openapi.airport.kr/openapi/service/StatusOfPassengerFlights/getPassengerDepartures"+"?ServiceKey=";
+		String addr = "/openapi/service/StatusOfPassengerArrivalsEN/getPassengerArrivalsEN";
+		String serviceKey = "YcoW7BSLwCQSZej0ziSIdrK6udQyleQhp7fvTpKM3iRDD3Ox4dEnOhD4BsraHoFhvMxBx%2FZjZRDfozLZlQCm2g%3D%3D";
+//	    String serviceKey =	"YcoW7BSLwCQSZej0ziSIdrK6udQyleQhp7fvTpKM3iRDD3Ox4dEnOhD4BsraHoFhvMxBx/ZjZRDfozLZlQCm2g==";
+
+		//addr = "http://openapi.airport.kr/openapi/service/StatusOfCargoFlights/getCargoArrivals"+"?ServiceKey=";
+		//serviceKey = "yPo3PuvE1sQkpdCvurcISjsT4fLb1ELGDxfNWCO5Lc3e5n5JN7sehR0FKB408%2BnNiKCH38hGFLwl%2F7FIIAi6WQ%3D%3D";
+
 		
 		//인증키(서비스키) url인코딩
-		serviceKey = URLEncoder.encode(serviceKey, "UTF-8");
+		//serviceKey = URLEncoder.encode(serviceKey, "UTF-8");
 		
 		/* 
 		parameter = parameter + "&" + "from_time = 0000";
@@ -34,7 +31,14 @@ public class CallRestWS {
 		parameter = parameter + "&" + "airport   = HKG";
 		parameter = parameter + "&" + "flight_id = KE846";
 		parameter = parameter + "&" + "airline   = KE";
-		 */
+		parameter = parameter + "&" + "lang      = K";  
+		*/
+
+		
+		// 놀이 시설 
+		/*
+		String addr = "http://openapi.cpf.go.kr/openapi/service/rest/ChildPlyFcltSafeInspctStatsInfoService/getSafeInspctStatsInfo"+"?ServiceKey=";
+		String serviceKey = "YcoW7BSLwCQSZej0ziSIdrK6udQyleQhp7fvTpKM3iRDD3Ox4dEnOhD4BsraHoFhvMxBx%2FZjZRDfozLZlQCm2g%3D%3D";		
 		
 		
 		parameter = parameter + "&" + "ciInstallSt = 2013-01-01";
@@ -46,7 +50,7 @@ public class CallRestWS {
 		parameter = parameter + "&" + "searchArea1 = 1100000000";
 		parameter = parameter + "&" + "searchArea2 = 1121500000";
 		parameter = parameter + "&" + "statuteYn   = Y";
-		 
+		*/ 
 		
 		addr = addr + serviceKey + parameter;
 		
