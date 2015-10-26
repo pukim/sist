@@ -18,6 +18,9 @@ public class Constants {
 	private final  String      configFileName = "sist/data/go/api/config.properties";
 	private final  Properties  prop = new Properties();
 	
+	private String serviceKey;
+	private String version;
+	
 	Constants() {
 		init();
 	}
@@ -38,10 +41,10 @@ public class Constants {
  
 			Date time = new Date(System.currentTimeMillis());
  
-			String version    = prop.getProperty("version");
-			String serviceKey = prop.getProperty("serviceKey");
+			version    = prop.getProperty("version");
+			serviceKey = prop.getProperty("serviceKey");
  
-			System.out.println("\nProgram Ran on " + time + "\n\n ver =" + version);
+			System.out.println("\nProgram Ran on " + time + "\n\nver =" + version);
 			System.out.println("key :" + serviceKey);
 			
 		} catch (Exception e) {
@@ -65,6 +68,10 @@ public class Constants {
 	
 	public Properties getProperties() {
 		return prop;
+	}
+	
+	public String getServiceKey() {
+		return "?ServiceKey="+serviceKey;
 	}
 	
 	public String toString() {
